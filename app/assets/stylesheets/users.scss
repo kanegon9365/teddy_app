@@ -1,0 +1,131 @@
+header{
+  overflow: hidden;
+  background-color:rgb(64, 247, 64);
+  ul li{
+      float:left;
+      list-style-type: none;
+      color:green;
+  }
+}
+
+.postpage{
+     background-color:rgb(147, 223, 241);
+     width:100%;
+     height:auto;
+     margin:0 auto 0 auto;
+ .float-clear{
+     overflow: hidden;
+ }
+ .float-box{
+     float:left;
+ }
+ .post_userimage{
+     display:block;
+     max-width:50%;
+     height:auto;
+     border-radius: 50%;
+     
+ }
+ .post_image{
+    display:block;
+    max-width:100%;
+    height:auto;
+    margin:auto;
+    border-radius: 10%;
+}
+ .post_date ul li{
+    float:left;
+    list-style-type: none;
+    align-items:center;
+ }
+}
+
+// showページ
+
+@media screen and (min-width:300px) {
+
+.showpage{
+    background-color:rgb(151, 151, 224);
+
+  .show_userimage{
+      max-width:60%;
+      border-radius:20%;
+  }
+  .float-clear{
+      overflow: hidden;
+  }
+  .float-box{
+      float:left;
+  }
+  
+  ul{
+      margin-top:30px;
+  }
+
+  ul li{
+      list-style-type: none;
+      display:inline-block;
+      line-height:30px;
+  }
+  .show_userpost{
+      display:block;
+      max-width:100%;
+      height:auto;
+      margin-top:10px;
+  }
+  
+}
+
+// #アバウトページ
+.aboutpage{
+  background-color:rgb(99, 241, 99);
+  
+  .about_topimage{
+      display:block;
+      max-width:100%;
+      height:auto;
+      
+
+  }
+  ul li{
+      max-width:100%;
+      list-style-type: none;
+  }
+}
+}
+
+@media screen and (min-width:600px) {
+.showpage{
+  .show_userimage{
+      max-width:100%;
+      border-radius:20%;
+  }
+  .float-clear{
+      overflow: hidden;
+  }
+  .float-box{
+      float:left;
+  }
+  .btn-follow{
+      margin-left:120px;
+      margin-top:-50px;
+  }
+
+  ul{
+      margin-top:0px;
+  }
+  ul li{
+      list-style-type: none;
+      display:inline-block;
+  }
+  .show_userpost{
+      display:block;
+      max-width:100%;
+      height:auto;
+      margin-top:10px;
+  }
+  
+
+  
+}
+}

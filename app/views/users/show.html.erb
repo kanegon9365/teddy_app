@@ -1,0 +1,61 @@
+<header>
+  <div class="container">
+   <div class="row">
+    <div class="col-4 col-md-4 teddylogo"><%= link_to  "logo", root_path %></div>
+    <div class="col-8 col-md-8">
+     <ul>
+      <li>検索</li>
+      <li>通知</li>
+      <li>画像</li>
+     </ul>
+    </div>
+   </div>
+  </div>
+</header>
+
+<main>
+<div class="container">
+ <div class="showpage">
+ <div class="float-clear">
+    <div class="float-box">
+      <img src="http://placehold.jp/24/cccccc/ffffff/152x152.png?text=user_image" class="show_userimage">
+    </div>
+      <%= link_to  "ユーザー名", users_show_path %>
+      <%= link_to  "フォロー", users_about_path, class:"btn btn-primary btn-follow" %>
+      
+      <ul>
+      <li>投稿数</li>
+      <li>フォロワー</li>
+      <li>フォロー中</li>
+      </ul>
+    <p>ここにユーザーのプロフィールが入ります。<br>
+    ですのでここに数行の余裕が必要。<br>
+    あいうえおかきく.
+    </p>
+  </div>
+   <div class="row">
+    <div class="col-4 col-md-4"><img src="http://placehold.jp/150x150.png" class="show_userpost"></div>
+    <div class="col-4 col-md-4"><img src="http://placehold.jp/150x150.png" class="show_userpost"></div>
+    <div class="col-4 col-md-4"> <img src="http://placehold.jp/150x150.png" class="show_userpost"></div>
+   </div>
+   <div class="row">
+    <div class="col-4 col-md-4"><img src="http://placehold.jp/150x150.png" class="show_userpost"></div>
+    <div class="col-4 col-md-4"><img src="http://placehold.jp/150x150.png" class="show_userpost"></div>
+    <div class="col-4 col-md-4"> <img src="http://placehold.jp/150x150.png" class="show_userpost"></div>
+   </div>
+   <div class="row">
+    <div class="col-4 col-md-4"><img src="http://placehold.jp/150x150.png" class="show_userpost"></div>
+    <div class="col-4 col-md-4"><img src="http://placehold.jp/150x150.png" class="show_userpost"></div>
+    <div class="col-4 col-md-4"> <img src="http://placehold.jp/150x150.png" class="show_userpost"></div>
+   </div>
+   <div class="row">
+    <div class="col-4 col-md-4"><img src="http://placehold.jp/150x150.png" class="show_userpost"></div>
+    <div class="col-4 col-md-4"><img src="http://placehold.jp/150x150.png" class="show_userpost"></div>
+    <div class="col-4 col-md-4"> <img src="http://placehold.jp/150x150.png" class="show_userpost"></div>
+   </div>
+ </div>
+</div>
+
+
+
+</main>
