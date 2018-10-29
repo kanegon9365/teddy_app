@@ -1,0 +1,21 @@
+<%= form_for(@user) do |f| %>
+
+ <%= f.label :name %>
+ <%= f.text_field :name, class:'form-control' %>
+ <%= render "shared/name_error_messages" %>
+ 
+
+ <%= f.label :email %>
+ <%= f.email_field :email, class:'form-control' %>
+ <%= render "shared/email_error_messages" %>
+
+ <%= f.label :パスワード %>
+ <%= f.password_field :password, class:'form-control' %>
+ <%= render "shared/password_error_messages" %>
+
+ <%= f.label :パスワードの確認 %>
+ <%= f.password_field :password_confirmation, class:'form-control' %>
+ <%= render "shared/password_confirmatio_error_messages" %>
+
+ <%= f.submit "ぬいどりを始める", class:"btn btn-primary" %>
+<% end %>

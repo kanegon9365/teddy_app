@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   def setup
-    @user = User.new(name:"kanegon", email:"kanegon@example.com", profile:"sampletext")
+    @user = User.new(name:"kanegon", email:"kanegon@example.com", profile:"sampletext", password: "aaaaaa", password_confirmation: "aaaaaa")
   end
 
   test "ユーザーが正しく存在しているか" do
@@ -32,6 +32,16 @@ class UserTest < ActiveSupport::TestCase
 
   test "プロフィール紹介文の文字数が制限内に収まっているか" do
     @user.profile = "a"*301
+    assert_not @user.valid?
+  end
+
+  test "パスワードが存在するか及び文字数が正しいか" do
+    @user.password = @user.password_confirmation = " " * 6
+    assert_not @user.valid?
+  end
+
+  test "パスワードの文字数が正しいか?" do
+    @user.password = @user.password_confirmation = "a" * 5
     assert_not @user.valid?
   end
 

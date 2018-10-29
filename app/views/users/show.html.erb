@@ -6,7 +6,7 @@
      <ul>
       <li>検索</li>
       <li>通知</li>
-      <li>画像</li>
+      <li></li>
      </ul>
     </div>
    </div>
@@ -20,8 +20,8 @@
     <div class="float-box">
       <img src="http://placehold.jp/24/cccccc/ffffff/152x152.png?text=user_image" class="show_userimage">
     </div>
-      <%= link_to  "ユーザー名", users_show_path %>
-      <%= link_to  "フォロー", users_about_path, class:"btn btn-primary btn-follow" %>
+      <%= link_to  user_name(@user), "#" %>
+      <%= link_to  "フォロー", about_path, class:"btn btn-primary btn-follow" %>
       
       <ul>
       <li>投稿数</li>
