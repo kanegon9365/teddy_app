@@ -13,13 +13,19 @@
  <div class="row">
   <div class="col-12 col-md-12">about teddy</div>
  </div>
-<a>Q:どのようなサービスですか？</a><br>
-<a>A:あなたのにんぎょうが主役のサービスです</a><br>
-<a>Q:どのようなジャンルがありますか？</a><br>
-<a>A:ジャンルは無限です。あなたが作りたい世界を作りましょう。</a><br>
-<a>どのようなサービスですか？</a><br>
-<a>どのようなサービスですか？</a><br>
 
-<%= link_to  "さあにんぎょうの世界に入ってみましょう!", root_path,class:"btn btn-primary" %>
+<% if logged_in? %>
+  <a>Q:どのようなサービスですか？</a><br>
+  <a>A:あなたのにんぎょうが主役のサービスです</a><br>
+  <a>Q:どのようなジャンルがありますか？</a><br>
+  <a>A:ジャンルは無限です。あなたが作りたい世界を作りましょう。</a><br>
+  <%= link_to "ログアウト", logout_path, method: :delete %>
+<% else %>
+  <a>どのようなサービスですか？</a><br>
+  <a>どのようなサービスですか？</a><br>
+  <%= link_to "ログイン", login_path %>
+<% end %>
+
+<%= link_to  "さあにんぎょうの世界に入ってみましょう!", root_path,class: "btn btn-primary" %>
 </div>
 </main>
