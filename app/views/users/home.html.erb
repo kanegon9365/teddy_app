@@ -3,11 +3,19 @@
    <div class="row">
     <div class="col-4 col-md-4 teddylogo"><%= link_to  "logo", root_path %></div>
     <div class="col-8 col-md-8">
-     <ul>
-      <li>検索</li>
-      <li>通知</li>
-      <li>画像</li>
-     </ul>
+     <% if logged_in? %>
+      <ul>
+        <li>検索</li>
+        <li>通知</li>
+        <li><%= link_to "ユーザー画像", user_path(current_user) %></li>
+        <li><%= link_to "編集", edit_user_path(current_user) %></li>
+        <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+      </ul>
+     <% else %>
+      <ul>
+        <li><%= link_to "ログイン", login_path %></li>
+      </ul>
+     <% end %>
     </div>
    </div>
   </div>

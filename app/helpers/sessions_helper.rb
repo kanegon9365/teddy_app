@@ -7,12 +7,23 @@ module SessionsHelper
   end
 
   def logged_in?
-    !current_user.nil?
+    !session[:user_id].nil?
   end
 
   def log_out
     session.delete(:user_id)
     @current_user = nil
+  end
+
+  # リクエストによって保存されたurlもしくはデフォルトで指定したurlを返す
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+  
+  # リクエストが送られたurlを保存するメソッド
+  def store_url
+    session[:forwarding_url] = request.fullpath if request.get?
   end
 
 end

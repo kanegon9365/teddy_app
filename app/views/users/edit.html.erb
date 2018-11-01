@@ -1,0 +1,27 @@
+<div class="container">
+ <div class="row">
+  <div class="col-md-6 col-md-offset-3">
+   <%= form_for(@user) do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, class:"form-control" %>
+    <%= render "shared/name_error_messages" %>
+    
+    <%= f.label :email %>
+    <%= f.email_field :email, class:"form-control" %>
+    <%= render "shared/email_error_messages" %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password, class:"form-control" %>
+    <%= render "shared/password_error_messages" %>
+
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, class:"form-control" %>
+    <%= render "shared/password_confirmation_error_messages" %>
+
+    <%= f.submit "変更する", class:"btn btn-primary" %>
+
+   <% end %>
+  </div>
+ </div>
+</div>

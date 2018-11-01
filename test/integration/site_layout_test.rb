@@ -8,4 +8,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]",root_path
     # assert_select "a[href=?]",users_show_path
   end
+
+  
+
 end
