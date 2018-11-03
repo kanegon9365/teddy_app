@@ -1,0 +1,10 @@
+<li>
+  <%# ここのuse_pathが持っている引数が正しいかわからないので後程確認する %>
+  <%= link_to tweetpost.user.name, user_path(tweetpost.user_id) %>
+  <span><%= tweetpost.id %></span>
+  <span><%= tweetpost.content %></span>
+  <span><%= image_tag tweetpost.picture.url if tweetpost.picture? %></span>
+  <% if tweetpost.user %>
+    <%= link_to "削除", tweetpost, method: :delete, data: { confirm: "投稿を削除しますか?" } %>
+  <% end %>
+</li>

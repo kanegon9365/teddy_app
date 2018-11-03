@@ -6,11 +6,20 @@ class UsersController < ApplicationController
   def home
   end
 
+  def home2
+    
+    if logged_in?
+      @tweetposts = current_user.tweetposts.build 
+      @feed = current_user.feed
+    end
+  end
+
   def about
   end
 
   def show
-    @user=User.find(params[:id])
+    @user = User.find(params[:id])
+    @tweetposts = @user.tweetposts
   end
 
   def new
@@ -49,12 +58,7 @@ class UsersController < ApplicationController
   end
 
   
-  def require_login
-    unless logged_in?
-      store_url
-      redirect_to login_url
-    end
-  end
+  
 
   def correct_user
     @user = User.find(params[:id])

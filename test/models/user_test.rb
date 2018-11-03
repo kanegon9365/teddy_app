@@ -45,6 +45,14 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "ユーザーが削除された際にユーザーが持っているtweetも一緒に削除されるか" do
+    @user.save
+    @user.tweetposts.create(content:"aaa")
+    assert_difference 'Tweetpost.count', -1 do
+      @user.destroy
+    end
+  end
+
 
 
 end

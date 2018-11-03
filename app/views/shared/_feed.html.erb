@@ -1,0 +1,6 @@
+<% if @feed.any? %>
+ <ol>
+  <% #@feedの各要素がTweetpostクラスを持っているため、_tweetpostパーシャルを呼び出すことができる %>
+  <%= render @feed %>
+ </ol>
+<% end %>

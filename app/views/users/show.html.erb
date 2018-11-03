@@ -33,6 +33,12 @@
     あいうえおかきく.
     </p>
   </div>
+    <% if @user.tweetposts.any? %>
+     <span>ツイート数（<%= @tweetposts.count %>）</span>
+      <ol>
+        <%= render @tweetposts %>
+      </ol>
+    <% end %>
    <div class="row">
     <div class="col-4 col-md-4"><img src="http://placehold.jp/150x150.png" class="show_userpost"></div>
     <div class="col-4 col-md-4"><img src="http://placehold.jp/150x150.png" class="show_userpost"></div>
