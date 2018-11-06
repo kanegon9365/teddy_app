@@ -28,7 +28,11 @@
  <div class="showpage">
  <div class="float-clear">
     <div class="float-box">
-      <img src="http://placehold.jp/24/cccccc/ffffff/152x152.png?text=user_image" class="show_userimage">
+      <% if @user.picture.blank? %>
+       <img src="http://placehold.jp/24/cccccc/ffffff/152x152.png?text=user_image" class="show_userimage">
+      <% else %>
+       <%= image_tag @user.picture.url %>
+      <% end %>
     </div>
       <%= link_to  user_name(@user), "#" %>
       <%= render 'follow_form' if logged_in? %>

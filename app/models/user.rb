@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :tweetposts, dependent: :destroy
+  has_many :likes, dependent: :destroy
   # active_relationshipsの関係性を作るためにrelationshipモデルを使用すると明示している.foreign_keyによりfollower_idとidが繋がる.
   has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: "follower_id",
@@ -24,6 +25,9 @@ class User < ApplicationRecord
   validates :profile, length:{ maximum: 300 }
   has_secure_password
   validates :password, presence: true, length:{ minimum: 6}
+  validate :picture_size
+  mount_uploader :picture, PictureUploader
+
 
   # フォローしているユーザーの投稿を取得
   def feed
@@ -48,5 +52,13 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
+
+  def picture_size
+    if picture.size > 5.megabytes
+      errors.add(:picture, "should be less than 5MB")
+    end
+  end
+
+  
 
 end
