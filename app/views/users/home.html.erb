@@ -1,83 +1,65 @@
-<header>
-  <div class="container">
-   <div class="row">
-    <div class="col-4 col-md-4 teddylogo"><%= link_to  "logo", root_path %></div>
-    <div class="col-8 col-md-8">
-     <% if logged_in? %>
-      <ul>
-        <li>検索</li>
-        <li>通知</li>
-        <li><%= link_to "ユーザー画像", user_path(current_user) %></li>
-        <li><%= link_to "編集", edit_user_path(current_user) %></li>
-        <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
-      </ul>
-     <% else %>
-      <ul>
-        <li><%= link_to "ログイン", login_path %></li>
-      </ul>
-     <% end %>
-    </div>
-   </div>
-  </div>
-   
-</header>
-<main>
-<article>
- <div class="container postpage">
-  <div class="float-clear">
-    <div class="float-box">
-      <img src="http://placehold.jp/24/cccccc/ffffff/40x40.png?text=user_image" class="post_userimage">
-    </div>
-      <%= link_to  "ユーザー名", "#" %>
-  </div>
-  <img src="http://placehold.jp/24/cccccc/ffffff/1000x500.png?text=投稿画像" class="post_image">
-  <div class="float-clear">
-  <div class="post_date">
-    <ul>
-      <li ><i class="far fa-heart"></i><a>いいね数</a></li>
-      <li><i class="far fa-comments"></i><a>コメント数</a></li>
-     <li><i class="fas fa-ellipsis-h"></i></li>
-    </ul>
-  </div>
-  </div>
-  <p>ここにはユーザーが投稿した文章を表示予定。<br>
-  リストタグ「ul」や「ol」はブロックレベル要素です。ul,olタグの中に入れることができるのは「li」タグのみです。それ以外のタグは入れることが出来ません。
-  リストタグ「ul」や「ol」はブロックレベル要素です。ul,olタグの中に入れることができるのは「li」タグのみです。<br>
-  それ以外のタグは入れることが出来ません。
-  </p>
-  <p>#ディズニー　#ぷーさん #ぬいどり #君と過ごした夏 #シンデレラ </p>
-  <%= link_to  "続きをよむ", "#" %><br>
-  <textarea name="kanso" rows="4" cols="40">お話しましょう！</textarea>
- </div>
+<% if logged_in? %>
 
- <div class="container postpage">
-  <div class="float-clear">
-    <div class="float-box">
-      <img src="http://placehold.jp/24/cccccc/ffffff/40x40.png?text=user_image" class="post_userimage">
+  <header>
+    <div class="container">
+    <div class="row">
+      <div class="col-4 col-md-4 teddylogo"><%= link_to  "logo", root_path %></div>
+      <div class="col-8 col-md-8">
+        <ul>
+          <li>検索</li>
+          <li>通知</li>
+          <li><%= link_to "ユーザー画像", user_path(current_user) %></li>
+          <li><%= link_to "編集", edit_user_path(current_user) %></li>
+          <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+        </ul>
+      </div>
     </div>
-      <a>ユーザの名前</a>
+    </div>
+  </header>
+
+<main>
+  <article>
+    <div class="container postpage">
+      <div class="float-clear">
+        <div class="float-box">
+          <img src="http://placehold.jp/24/cccccc/ffffff/40x40.png?text=user_image" class="post_userimage">
+        </div>
+          <div class="row"> 
+  <div class="col-4 col-md-4">
+   <section>
+    <%= current_user.name %><br>
+    <%= current_user.email %><br>
+    <%= render 'shared/follow_count' %>
+    <%= render 'shared/tweet_form' %>
+   </section>
   </div>
-  <img src="http://placehold.jp/24/cccccc/ffffff/1000x500.png?text=投稿画像" class="post_image">
-  <div class="float-clear">
-    <ul>
-    
-      <li ><i class="far fa-heart"></i><a>いいね数</a></li>
-      <li><i class="far fa-comments"></i><a>コメント数</a></li>
-    
-    
-     <li><i class="fas fa-ellipsis-h"></i></li>
-    </ul>
+  <div class="col-8 col-md-8">
+   <section>
+    <p>すべての投稿</p>
+    <%= render 'shared/feed' %>
+   </section>
   </div>
-  
-  <p>ここにはユーザーが投稿した文章を表示予定。<br>
-  リストタグ「ul」や「ol」はブロックレベル要素です。ul,olタグの中に入れることができるのは「li」タグのみです。それ以外のタグは入れることが出来ません。
-  リストタグ「ul」や「ol」はブロックレベル要素です。ul,olタグの中に入れることができるのは「li」タグのみです。<br>
-  それ以外のタグは入れることが出来ません。
-  </p>
-  <p>#ディズニー　#ぷーさん #ぬいどり #君と過ごした夏 #シンデレラ </p>
-  <%= link_to  "続きをよむ", "#" %><br>
-  <textarea name="kanso" rows="4" cols="40">お話しましょう！</textarea>
- </div>
- 
-</article>
+      <%= link_to  "続きをよむ", "#" %><br>
+    </div>
+  </article>
 </main>
+
+<% else %>
+
+  
+  <header>
+    <div class="container">
+    <div class="row">
+      <div class="col-4 col-md-4 teddylogo"><%= link_to  "logo", root_path %></div>
+      <div class="col-8 col-md-8">
+        <ul>
+          <li><%= link_to "ログインする", login_path %></li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </header>
+
+  
+
+<% end %>

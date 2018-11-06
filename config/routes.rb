@@ -1,19 +1,23 @@
 Rails.application.routes.draw do
   
   
-  root 'users#home2'
-  get '/home', to: 'users#home'
+  root 'users#home'
   get '/about', to: 'users#about'
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
   get '/succeed', to: 'users#succeed'
   get '/users/:id', to: 'users#show'
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   # ログイン/ログアウト
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   resources :tweetposts, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
   
  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

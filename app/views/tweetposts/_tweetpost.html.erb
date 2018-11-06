@@ -4,7 +4,18 @@
   <span><%= tweetpost.id %></span>
   <span><%= tweetpost.content %></span>
   <span><%= image_tag tweetpost.picture.url if tweetpost.picture? %></span>
+   <div class="float-clear">
+      <div class="post_date">
+        <ul>
+          <li ><i class="far fa-heart"></i><a>いいね数</a></li>
+          <li><i class="far fa-comments"></i><a>コメント数</a></li>
+        <li><i class="fas fa-ellipsis-h"></i></li>
+        </ul>
+      </div>
+      </div>
   <% if tweetpost.user %>
     <%= link_to "削除", tweetpost, method: :delete, data: { confirm: "投稿を削除しますか?" } %>
   <% end %>
+  <p>#ディズニー　#ぷーさん #ぬいどり #君と過ごした夏 #シンデレラ </p>
+  <textarea name="kanso" rows="4" cols="40">お話しましょう！</textarea>
 </li>

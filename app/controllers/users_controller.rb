@@ -3,13 +3,10 @@ class UsersController < ApplicationController
   before_action :require_login, only: [:edit, :update]
   before_action :correct_user, only: [:edit, :update]
   
+  
   def home
-  end
-
-  def home2
-    
     if logged_in?
-      @tweetposts = current_user.tweetposts.build 
+      @tweetposts = current_user.tweetposts.build
       @feed = current_user.feed
     end
   end
@@ -71,7 +68,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :profile, :password, :password_confirmation)
     end
 
 end

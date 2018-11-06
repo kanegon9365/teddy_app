@@ -1,17 +1,27 @@
-<header>
-  <div class="container">
-   <div class="row">
-    <div class="col-4 col-md-4 teddylogo"><%= link_to  "logo", root_path %></div>
-    <div class="col-8 col-md-8">
-     <ul>
-      <li>検索</li>
-      <li>通知</li>
-      <li></li>
-     </ul>
+
+
+  <header>
+    <div class="container">
+    <div class="row">
+      <div class="col-4 col-md-4 teddylogo"><%= link_to  "logo", root_path %></div>
+      <div class="col-8 col-md-8">
+        <ul>
+         <% if logged_in? %>
+          <li>検索</li>
+          <li>通知</li>
+          <li><%= link_to "ユーザー画像", user_path(current_user) %></li>
+          <li><%= link_to "編集", edit_user_path(current_user) %></li>
+          <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+         <% else %>
+          <li>検索</li>
+          <li>通知</li>
+          <li><%= link_to "ログイン", login_path %></li>
+         <% end %>
+        </ul>
+      </div>
     </div>
-   </div>
-  </div>
-</header>
+    </div>
+  </header>
 
 <main>
 <div class="container">
@@ -21,17 +31,24 @@
       <img src="http://placehold.jp/24/cccccc/ffffff/152x152.png?text=user_image" class="show_userimage">
     </div>
       <%= link_to  user_name(@user), "#" %>
-      <%= link_to  "フォロー", about_path, class:"btn btn-primary btn-follow" %>
+      <%= render 'follow_form' if logged_in? %>
+
       
       <ul>
-      <li>投稿数</li>
-      <li>フォロワー</li>
-      <li>フォロー中</li>
+      <li>投稿数<%= @user.tweetposts.count %></li>
+      <%= render 'shared/follow_count' %>
       </ul>
-    <p>ここにユーザーのプロフィールが入ります。<br>
-    ですのでここに数行の余裕が必要。<br>
-    あいうえおかきく.
-    </p>
+    <%# ユーザープロフィール表示の条件分岐。%>
+    <% if @user.profile.blank? %>
+      <% if current_user?(@user) %> 
+        <p><%= link_to "自分のプロフィールを更新してみましょう", edit_user_path(current_user) %></p>
+      <% else %>
+        <%= "#{@user.name}さんのプロフィールにはまだ何も書かれていません" %>
+      <% end %>
+    <% else %>
+      <p><%= @user.profile %> </p>
+    <% end %>
+
   </div>
     <% if @user.tweetposts.any? %>
      <span>ツイート数（<%= @tweetposts.count %>）</span>
