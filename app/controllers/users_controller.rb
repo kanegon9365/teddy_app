@@ -51,7 +51,12 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    if params[:q] && params[:q].reject { |key, value| value.blank? }.present?
+      @q = User.ransack(search_params, activated_true: true)
+    else
+      @q = User.ransack(activated_true: true)
+    end
+    @users = @q.result
   end
 
   
@@ -69,6 +74,10 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :email, :profile, :picture, :password, :password_confirmation)
+    end
+
+    def search_params
+      params.require(:q).permit(:name_cont)
     end
 
 end

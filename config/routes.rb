@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
   get '/succeed', to: 'users#succeed'
+  get '/index',to: 'users#index'
   get '/users/:id', to: 'users#show'
   resources :users do
     member do
