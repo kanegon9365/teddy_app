@@ -7,7 +7,14 @@ class UsersController < ApplicationController
   def home
     if logged_in?
       @tweetposts = current_user.tweetposts.build
-      @feed = current_user.feed
+        if params[:q] && params[:q].reject { |key, value| value.blank? }.present?
+          @q = current_user.feed.ransack(tweetposts_search_params)
+          @feed = @q.result
+        else
+          @q = Tweetpost.none.ransack
+          @feed = current_user.feed
+        end
+      @url = root_path
     end
   end
 
@@ -59,6 +66,10 @@ class UsersController < ApplicationController
     @users = @q.result
   end
 
+  def search
+    
+  end
+
   
   
 
@@ -78,6 +89,10 @@ class UsersController < ApplicationController
 
     def search_params
       params.require(:q).permit(:name_cont)
+    end
+
+    def tweetposts_search_params
+      params.require(:q).permit(:content_cont)
     end
 
 end

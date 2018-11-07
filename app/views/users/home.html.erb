@@ -6,7 +6,7 @@
       <div class="col-4 col-md-4 teddylogo"><%= link_to  "logo", root_path %></div>
       <div class="col-8 col-md-8">
         <ul>
-          <li>検索</li>
+          <%= render 'shared/search_tweetpost_form' %>
           <li>通知</li>
           <li><%= link_to "ユーザー画像", user_path(current_user) %></li>
           <li><%= link_to "編集", edit_user_path(current_user) %></li>
@@ -22,7 +22,11 @@
     <div class="container postpage">
       <div class="float-clear">
         <div class="float-box">
-          <img src="http://placehold.jp/24/cccccc/ffffff/40x40.png?text=user_image" class="post_userimage">
+          <% if current_user.picture.blank? %>
+            <img src="http://placehold.jp/24/cccccc/ffffff/40x40.png?text=user_image" class="post_userimage">
+          <% else %>
+            <%= image_tag current_user.picture.url %>
+          <% end %>
         </div>
           <div class="row"> 
   <div class="col-4 col-md-4">

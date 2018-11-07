@@ -1,4 +1,4 @@
-<li>
+<li id="tweetpost-<%= tweetpost.id %>" data-tweetpost-id="<%= tweetpost.id %>">
   <%# ここのuse_pathが持っている引数が正しいかわからないので後程確認する %>
   <%= link_to tweetpost.user.name, user_path(tweetpost.user_id) %>
   <span><%= tweetpost.id %></span>
@@ -8,7 +8,8 @@
       <div class="post_date">
         <ul>
           <li ><i class="far fa-heart"></i><a>いいね数</a></li>
-          <li><i class="far fa-comments"></i><a>コメント数</a></li>
+          <li><%= link_to "コメントの詳細をみる", tweetpost_path(tweetpost.id) %> </li>
+          <%= tweetpost.comments %>
         <li><i class="fas fa-ellipsis-h"></i></li>
         </ul>
       </div>
@@ -19,3 +20,4 @@
   <p>#ディズニー　#ぷーさん #ぬいどり #君と過ごした夏 #シンデレラ </p>
   <textarea name="kanso" rows="4" cols="40">お話しましょう！</textarea>
 <%= render "likes/like", tweetpost: tweetpost %>
+</li>

@@ -1,6 +1,7 @@
 class Tweetpost < ApplicationRecord
   belongs_to :user
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :do_like_users, through: :likes, source: :user
   
   default_scope -> { order(created_at: :desc) }

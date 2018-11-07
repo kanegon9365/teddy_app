@@ -1,0 +1,6 @@
+<div id="comments_area">
+  <%= render partial: 'comments/index', locals: { comments: @comments } %>
+</div>  
+<% if logged_in? %>
+  <%= render partial: 'comments/form', locals: { comment: @comment, tweetpost: @tweetpost } %>
+<% end %>

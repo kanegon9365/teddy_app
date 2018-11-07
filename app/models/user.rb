@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :tweetposts, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
   # active_relationshipsの関係性を作るためにrelationshipモデルを使用すると明示している.foreign_keyによりfollower_idとidが繋がる.
   has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: "follower_id",

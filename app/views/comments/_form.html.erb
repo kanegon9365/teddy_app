@@ -1,0 +1,6 @@
+<%= form_with(model: [tweetpost, comment] ) do |f|  %>
+  <div>
+    <%= f.text_area :content %>
+  </div>
+  <%= f.submit "コメントする" %>
+<% end %>
