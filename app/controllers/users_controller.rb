@@ -24,6 +24,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @tweetposts = @user.tweetposts
+    
+   
   end
 
   def new
@@ -80,6 +82,7 @@ class UsersController < ApplicationController
     end
   end
 
+  
 
   private
 

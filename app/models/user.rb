@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  
+  
   has_many :tweetposts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy

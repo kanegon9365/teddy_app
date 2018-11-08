@@ -30,20 +30,21 @@
         </div>
           <div class="row"> 
   <div class="col-4 col-md-4">
-   <section>
-    <%= current_user.name %><br>
-    <%= current_user.email %><br>
-    <%= render 'shared/follow_count' %>
-    <%= render 'shared/tweet_form' %>
-   </section>
+    <section>
+      <%= current_user.name %><br>
+      <%= current_user.email %><br>
+      <%= render 'shared/follow_count' %>
+      <%= render 'shared/tweet_form' %>
+    </section>
   </div>
   <div class="col-8 col-md-8">
-   <section>
-    <p>すべての投稿</p>
-    <%= render 'shared/feed' %>
-   </section>
+    <section>
+      <p>すべての投稿</p>
+        
+          <%= render 'shared/feed' %>
+          
+    </section>
   </div>
-      <%= link_to  "続きをよむ", "#" %><br>
     </div>
   </article>
 </main>
