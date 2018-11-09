@@ -21,7 +21,8 @@ gem 'mini_magick', '4.7.0'
 gem 'rmagick'
 gem 'rails-ujs'
 gem 'ransack'
-gem 'kaminari', '~> 0.17.0'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 
 

@@ -3,6 +3,10 @@ class TweetpostsController < ApplicationController
   before_action :require_login, only: [:create, :destroy]
   before_action :correct_user, only: [:destroy]
 
+  def new
+    @tweetposts = current_user.tweetposts.build
+  end
+
   def create
     @tweetpost = current_user.tweetposts.build(tweet_params)
       if @tweetpost.save

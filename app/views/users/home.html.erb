@@ -1,70 +1,33 @@
+
 <% if logged_in? %>
-
-  <header>
-    <div class="container">
-    <div class="row">
-      <div class="col-4 col-md-4 teddylogo"><%= link_to  "logo", root_path %></div>
-      <div class="col-8 col-md-8">
-        <ul>
-          <%= render 'shared/search_tweetpost_form' %>
-          <li>通知</li>
-          <li><%= link_to "ユーザー画像", user_path(current_user) %></li>
-          <li><%= link_to "編集", edit_user_path(current_user) %></li>
-          <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
-        </ul>
-      </div>
-    </div>
-    </div>
-  </header>
-
 <main>
   <article>
     <div class="container postpage">
-      <div class="float-clear">
-        <div class="float-box">
-          <% if current_user.picture.blank? %>
-            <img src="http://placehold.jp/24/cccccc/ffffff/40x40.png?text=user_image" class="post_userimage">
-          <% else %>
-            <%= image_tag current_user.picture.url %>
-          <% end %>
-        </div>
-          <div class="row"> 
-  <div class="col-4 col-md-4">
-    <section>
-      <%= current_user.name %><br>
-      <%= current_user.email %><br>
-      <%= render 'shared/follow_count' %>
-      <%= render 'shared/tweet_form' %>
-    </section>
-  </div>
-  <div class="col-8 col-md-8">
-    <section>
-      <p>すべての投稿</p>
-        
-          <%= render 'shared/feed' %>
-          
-    </section>
-  </div>
+        <div class="row"> 
+          <div class="col-10 col-md-10">
+            <section>
+              <p>すべての投稿</p>
+              <%= render 'shared/feed' %>
+            </section>
+          </div>
+          <div class="col-2 col-md-2">
+            <% if current_user.picture.blank? %>
+              <img src="http://placehold.jp/24/cccccc/ffffff/40x40.png?text=user_image" class="post_userimage">
+            <% else %>
+              <%= image_tag current_user.picture.url, size:50 %>
+            <% end %>
+            <section>
+              <%= current_user.name %><br>
+              <%= current_user.email %><br>
+              <%= render 'shared/follow_count' %>
+            </section>
+          </div>
+      </div>
     </div>
   </article>
 </main>
-
+<%= render 'shared/header' %>
 <% else %>
-
-  
-  <header>
-    <div class="container">
-    <div class="row">
-      <div class="col-4 col-md-4 teddylogo"><%= link_to  "logo", root_path %></div>
-      <div class="col-8 col-md-8">
-        <ul>
-          <li><%= link_to "ログインする", login_path %></li>
-        </ul>
-      </div>
-    </div>
-    </div>
-  </header>
-
-  
+<%= render 'shared/header' %>
 
 <% end %>

@@ -6,16 +6,26 @@ class UsersController < ApplicationController
   
   def home
     if logged_in?
-      @tweetposts = current_user.tweetposts.build
         if params[:q] && params[:q].reject { |key, value| value.blank? }.present?
-          @q = current_user.feed.ransack(tweetposts_search_params)
-          @feed = @q.result
+          @q = current_user.feed.ransack(current_user_tweetposts_search_params)
+          @feed = @q.result.paginate(page: params[:page], per_page:2)
         else
           @q = Tweetpost.none.ransack
-          @feed = current_user.feed
+          @feed = current_user.feed.paginate(page: params[:page], per_page:2)
         end
       @url = root_path
     end
+  end
+
+  def search_all
+    
+    if params[:q] && params[:q].reject { |key, value| value.blank? }.present?
+      @q = Tweetpost.ransack(all_tweetpost_search_params, activated_true: true)
+    else
+      @q = Tweetpost.ransack(activated_true: true)
+    end
+    @tweetposts = @q.result.paginate(page: params[:page],per_page:10)
+    @url = search_tweetpost_path
   end
 
   def about
@@ -46,6 +56,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit_password
+    @user = User.find(params[:id])
+  end
+
   def update
     @user = User.find(params[:id])
     # データーベースから取得したオブジェクトを更新/保存
@@ -68,13 +82,6 @@ class UsersController < ApplicationController
     @users = @q.result
   end
 
-  def search
-    
-  end
-
-  
-  
-
   def correct_user
     @user = User.find(params[:id])
     unless @user == current_user
@@ -90,11 +97,15 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :profile, :picture, :password, :password_confirmation)
     end
 
-    def search_params
+    def user_search_params
       params.require(:q).permit(:name_cont)
     end
 
-    def tweetposts_search_params
+    def all_tweetpost_search_params
+      params.require(:q).permit(:content_cont)
+    end
+
+    def current_user_tweetposts_search_params
       params.require(:q).permit(:content_cont)
     end
 

@@ -1,0 +1,14 @@
+<%= link_to "全ての投稿をみる", search_tweetpost_path %>
+<%= search_form_for @q, url: @url do |f| %>
+  <%= f.label :content_cont, 'Tweetpost Search' %>
+  <%= f.text_field :content_cont, placeholder: "投稿を検索する", class:"form-control" %>
+
+  <%= f.submit "検索", class:"btn btn-primary" %>
+<% end %>
+
+<ol>
+  <li><%= render @tweetposts %></li>
+</ol>
+<%= will_paginate @tweetposts,  :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+
+<%= render 'shared/header'%>

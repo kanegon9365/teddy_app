@@ -11,3 +11,4 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: 確認のためのパスワード
+        password_confirmation_change: 新しいパスワード（確認）

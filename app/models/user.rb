@@ -13,8 +13,8 @@ class User < ApplicationRecord
 
   # followed_idとuserモデルのidとの関連性を明示
   has_many :passive_relationships, class_name: "Relationship",
-                                   foreign_key: "followed_id",
-                                   dependent: :destroy
+                                  foreign_key: "followed_id",
+                                  dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
 
   before_save { self.email = email.downcase }
@@ -27,7 +27,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   validates :profile, length:{ maximum: 300 }
   has_secure_password
-  validates :password, presence: true, length:{ minimum: 6}
+  validates :password, presence: true, length:{ minimum: 6}, allow_nil:true
   validate :picture_size
   mount_uploader :picture, PictureUploader
 
