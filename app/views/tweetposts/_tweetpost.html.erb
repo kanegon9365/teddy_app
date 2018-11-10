@@ -7,7 +7,7 @@
   <% end %>
     <%= link_to tweetpost.user.name, user_path(tweetpost.user_id) %>
     <span><%= image_tag tweetpost.picture.url if tweetpost.picture? %></span>
-    <span><%= tweetpost.content %></span>
+    <span><%= simple_format(tweetpost.content) %></span>
     <p>#ディズニー　#ぷーさん #ぬいどり #君と過ごした夏 #シンデレラ </p>
 
     <div class="float-clear">

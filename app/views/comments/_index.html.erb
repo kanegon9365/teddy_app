@@ -2,7 +2,7 @@
   <% unless comment.id.nil? %>
     <p><%= link_to "#{comment.user.name}さんのコメント", user_path(comment.user.id) %></p>
     <p>コメントの内容<br>
-    <%= comment.content %></p>
+    <%= simple_format(comment.content) %></p>
 
     <% if comment.user == current_user %>
       <%= link_to "削除", tweetpost_comment_path(comment.tweetpost_id, comment.id), method: :delete, remote: true %>

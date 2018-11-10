@@ -15,7 +15,7 @@
     <%= render "shared/email_error_messages" %>
 
     <%= f.label :profile %>
-    <%= f.text_field :profile, class:"form-control" %>
+    <%= f.text_area :profile, class:"form-control", rows: 10, cols: 40 %>
 
     <%= f.submit "変更する", class:"btn btn-primary" %>
 

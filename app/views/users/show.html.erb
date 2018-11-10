@@ -24,7 +24,7 @@
             <%= "#{@user.name}さんのプロフィールにはまだ何も書かれていません" %>
           <% end %>
         <% else %>
-          <p><%= @user.profile %> </p>
+          <p><%= simple_format(@user.profile) %> </p>
         <% end %>
 
       </div>
