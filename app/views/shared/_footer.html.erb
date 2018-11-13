@@ -1,0 +1,43 @@
+<% if logged_in? %>
+  <footer>
+    <div class="footer-container">
+        <ul>
+          <li>
+            <%= link_to root_path, method: :get do %>
+              <i class="fas fa-home"></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to search_tweetpost_path, method: :get do %>
+              <i class="fas fa-search"></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_tweetpost_path, method: :get do %>
+              <i class="fas fa-plus"></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to user_path(current_user), method: :get do %>
+              <i class="fas fa-paw"></i>
+            <% end %>
+          </li>
+          
+        </ul>
+    </div>
+  </footer>
+<% else %>
+  <footer>
+    <div class="container">
+    <div class="row">
+      <div class="col-4 col-md-4 teddylogo"><%= link_to  "logo", root_path %></div>
+      <div class="col-8 col-md-8">
+        <ul>
+          <li><%= link_to "ログインする", login_path %></li>
+          <li>全ユーザーの投稿をみる</li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </footer>
+<% end %>

@@ -1,28 +1,33 @@
-<li id="tweetpost-<%= tweetpost.id %>" data-tweetpost-id="<%= tweetpost.id %>">
-  <%# ここのuse_pathが持っている引数が正しいかわからないので後程確認する %>
-  <% if current_user.picture.blank? %>
-    <img src="http://placehold.jp/24/cccccc/ffffff/40x40.png?text=user_image" class="post_userimage">
-  <% else %>
-    <%= image_tag current_user.picture.url, size: 30 %>
-  <% end %>
-    <%= link_to tweetpost.user.name, user_path(tweetpost.user_id) %>
-    <span><%= image_tag tweetpost.picture.url if tweetpost.picture? %></span>
-    <span><%= simple_format(tweetpost.content) %></span>
-    <p>#ディズニー　#ぷーさん #ぬいどり #君と過ごした夏 #シンデレラ </p>
+<div class="post-container">
+  <li id="tweetpost-<%= tweetpost.id %>" data-tweetpost-id="<%= tweetpost.id %>">
+    <div class="post-image-name-box">
+      <% if tweetpost.user.picture.blank? %>
+        <img src="http://placehold.jp/24/cccccc/ffffff/30x30.png?text=user_image" class="post_user-image">
+      <% else %>
+        <%= image_tag tweetpost.user.picture.url, size: 30, class: "post-user-image" %>
+      <% end %>
+      <%= link_to tweetpost.user.name, user_path(tweetpost.user_id) %>
+    </div>
+    <span class="post-tweetpost-image"><%= image_tag tweetpost.picture.url if tweetpost.picture? %></span>
 
-    <div class="float-clear">
-      <div class="post_date">
-        <ul>
-          <li ><%= render "likes/like", tweetpost: tweetpost %></li>
-          <li><%= link_to "コメントを見る", tweetpost_path(tweetpost.id) %> </li>
-          <li><i class="fas fa-ellipsis-h"></i></li>
-        </ul>
-      </div>
+    <div class="post-likecomment-container">
+      <ul>
+        <li><%= render "likes/like", tweetpost: tweetpost %></li>
+        <li>
+        <%= link_to tweetpost_path(tweetpost.id), method: :get do %> 
+          <i class="far fa-comments"></i>
+        <% end %>
+        </li>
+        <li><i class="fas fa-ellipsis-h"></i></li>
+        <li><i class="far fa-share-square"></i></li>
+        <% if tweetpost.user %>
+          <%= link_to tweetpost, method: :delete, data: { confirm: "投稿を削除しますか?" } do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
+        <% end %>
+      </ul>
     </div>
 
-  <% if tweetpost.user %>
-    <%= link_to "投稿を削除", tweetpost, method: :delete, data: { confirm: "投稿を削除しますか?" } %>
-  <% end %>
-  
-
-</li>
+  <span class="post-tweetpost-text"><%= simple_format(tweetpost.content) %></span>
+  </li>
+</div>

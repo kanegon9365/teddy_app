@@ -1,42 +1,47 @@
 <main>
   <div class="container">
-    <div class="showpage">
-      <div class="float-clear">
-        <div class="float-box">
-          <% if @user.picture.blank? %>
-            <img src="http://placehold.jp/24/cccccc/ffffff/152x152.png?text=user_image" class="show_userimage">
+    <div class="show-container">
+      <div class="show-user-image-box">
+        <% if @user.picture.blank? %>
+          <img src="http://placehold.jp/24/cccccc/ffffff/152x152.png?text=user_image", class="show-user-image">
+        <% else %>
+          <%= image_tag @user.picture.url, size:150, class:"show-user-image" %>
+        <% end %>
+      </div>
+      <div class="show-userprofile-box">
+        <div class="name-follow-edit-box">
+          <span class="show-user-name"><%= user_name(@user) %></span>
+          <span class="show-follow-form"><%= render 'follow_form' if logged_in? %></span>
+          <%= link_to "編集", edit_user_path(current_user), class:"show-edit" %>
+          <%= link_to "アウト", logout_path, method: :delete, class:"show-edit" %>
+        </div>
+        <div class="count-box">
+          <ul>
+            <li>投稿<%= @user.tweetposts.count %>件</li>
+            <li><%= render 'shared/follow_count' %></li>
+          </ul>
+        </div>
+        <%# ユーザープロフィール表示の条件分岐 %>
+        <div class="show-profile-text">
+          <% if @user.profile.blank? %>
+            <% if current_user?(@user) %> 
+              <p><%= link_to "自分のプロフィールを更新してみましょう", edit_user_path(current_user) %></p>
+            <% else %>
+              <%= "#{@user.name}さんのプロフィールにはまだ何も書かれていません" %>
+            <% end %>
           <% else %>
-            <%= image_tag @user.picture.url %>
+            <p><%= simple_format(@user.profile) %> </p>
           <% end %>
         </div>
-        <%= link_to  user_name(@user), "#" %>
-        <%= render 'follow_form' if logged_in? %>
-        <ul>
-          <li>投稿数<%= @user.tweetposts.count %></li>
-          <%= render 'shared/follow_count' %>
-        </ul>
-
-        <%# ユーザープロフィール表示の条件分岐。%>
-        <% if @user.profile.blank? %>
-          <% if current_user?(@user) %> 
-            <p><%= link_to "自分のプロフィールを更新してみましょう", edit_user_path(current_user) %></p>
-          <% else %>
-            <%= "#{@user.name}さんのプロフィールにはまだ何も書かれていません" %>
-          <% end %>
-        <% else %>
-          <p><%= simple_format(@user.profile) %> </p>
-        <% end %>
-
-      </div>
-        <% if @user.tweetposts.any? %>
-          <span>ツイート数（<%= @tweetposts.count %>）</span>
-          <ol>
-            <%= render @tweetposts %>
-          </ol>
-        <% end %>
       </div>
     </div>
   </div>
-  <%= render 'shared/header' %>
+
+  <% if @user.tweetposts.any? %>
+    <ol>
+      <%= render @tweetposts %>
+    </ol>
+  <% end %>
+  <%= render 'shared/footer' %>
 </main>
 

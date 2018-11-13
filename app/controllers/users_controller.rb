@@ -8,10 +8,10 @@ class UsersController < ApplicationController
     if logged_in?
         if params[:q] && params[:q].reject { |key, value| value.blank? }.present?
           @q = current_user.feed.ransack(current_user_tweetposts_search_params)
-          @feed = @q.result.paginate(page: params[:page], per_page:2)
+          @feed = @q.result.paginate(page: params[:page], per_page:10)
         else
           @q = Tweetpost.none.ransack
-          @feed = current_user.feed.paginate(page: params[:page], per_page:2)
+          @feed = current_user.feed.paginate(page: params[:page], per_page:10)
         end
       @url = root_path
     end

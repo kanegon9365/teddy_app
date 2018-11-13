@@ -1,131 +1,87 @@
-header{
-  overflow: hidden;
-  background-color:rgb(64, 247, 64);
-  ul li{
-      float:left;
-      list-style-type: none;
-      color:green;
-  }
+@charset "UTF-8"
+body{ 
+    font-family:  'メイリオ','Hiragino Kaku Gothic Pro', sans-self;
 }
-
-.postpage{
-     background-color:rgb(147, 223, 241);
-     width:100%;
-     height:auto;
-     margin:0 auto 0 auto;
- .float-clear{
-     overflow: hidden;
- }
- .float-box{
-     float:left;
- }
- .post_userimage{
-     display:block;
-     max-width:50%;
-     height:auto;
-     border-radius: 50%;
-     
- }
- .post_image{
-    display:block;
-    max-width:100%;
-    height:auto;
-    margin:auto;
-    border-radius: 10%;
-}
- .post_date ul li{
-    float:left;
-    list-style-type: none;
-    align-items:center;
- }
-}
-
-// showページ
-
 @media screen and (min-width:300px) {
+    footer{
+        .footer-container{
+            background-color: rgb(61, 235, 127);
+            border: solid 2px black;
+            clear: both;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            ul li{
+                list-style-type: none;
+                float: left;
+                width: 25%;
+                display: block;
+                text-align: center;
+                font-size: 30px;
+            }
+            
+        }
+    }
 
-.showpage{
-    background-color:rgb(151, 151, 224);
-
-  .show_userimage{
-      max-width:60%;
-      border-radius:20%;
-  }
-  .float-clear{
-      overflow: hidden;
-  }
-  .float-box{
-      float:left;
-  }
-  
-  ul{
-      margin-top:30px;
-  }
-
-  ul li{
-      list-style-type: none;
-      display:inline-block;
-      line-height:30px;
-  }
-  .show_userpost{
-      display:block;
-      max-width:100%;
-      height:auto;
-      margin-top:10px;
-  }
-  
+    // ユーザー詳細ページ
+    .show-container{
+        background-color: rgb(225, 248, 140);
+        border: solid 2px black;
+        clear: both;
+        height: auto;
+        margin-bottom: 40px;
+        .show-user-image-box{
+            
+            
+            .show-user-image{
+                border-radius: 50%;
+                display: block;
+                height:auto; 
+                margin: 20px;
+                float: left;
+                max-width: 100%;
+                height: auto;
+	            box-sizing: border-box;
+            }
+        }
+        
+        .show-userprofile-box{
+            
+            .name-follow-edit-box{
+                margin-top:20px;
+                .show-user-name{
+                    float: left;
+                    color:red;
+                    font-size:26px;
+                }
+                .show-follow-form{
+                    float: left;
+                }
+                .show-edit{
+                    
+                }
+            }
+            .count-box{
+                margin-top: 20px;
+                ul li{
+                    float:left;
+                    list-style-type:none;
+                }
+                ul li:last-child{
+                    float: none;
+                }
+            }
+            .show-profile-text{
+                width: 100%;
+                font-size: 14px;
+                height: auto;
+            }
+        }
+    }
 }
 
-// #アバウトページ
-.aboutpage{
-  background-color:rgb(99, 241, 99);
-  
-  .about_topimage{
-      display:block;
-      max-width:100%;
-      height:auto;
-      
 
-  }
-  ul li{
-      max-width:100%;
-      list-style-type: none;
-  }
-}
-}
-
-@media screen and (min-width:600px) {
-.showpage{
-  .show_userimage{
-      max-width:100%;
-      border-radius:20%;
-  }
-  .float-clear{
-      overflow: hidden;
-  }
-  .float-box{
-      float:left;
-  }
-  .btn-follow{
-      margin-left:120px;
-      margin-top:-50px;
-  }
-
-  ul{
-      margin-top:0px;
-  }
-  ul li{
-      list-style-type: none;
-      display:inline-block;
-  }
-  .show_userpost{
-      display:block;
-      max-width:100%;
-      height:auto;
-      margin-top:10px;
-  }
-  
-
-  
-}
+@media screen and (min-width:768px) {
 }

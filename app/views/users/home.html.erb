@@ -2,32 +2,15 @@
 <% if logged_in? %>
 <main>
   <article>
-    <div class="container postpage">
-        <div class="row"> 
-          <div class="col-10 col-md-10">
-            <section>
-              <p>すべての投稿</p>
-              <%= render 'shared/feed' %>
-            </section>
-          </div>
-          <div class="col-2 col-md-2">
-            <% if current_user.picture.blank? %>
-              <img src="http://placehold.jp/24/cccccc/ffffff/40x40.png?text=user_image" class="post_userimage">
-            <% else %>
-              <%= image_tag current_user.picture.url, size:50 %>
-            <% end %>
-            <section>
-              <%= current_user.name %><br>
-              <%= current_user.email %><br>
-              <%= render 'shared/follow_count' %>
-            </section>
-          </div>
-      </div>
+    <div class="container">
+      <section>
+        <%= render 'shared/feed' %>
+      </section>
     </div>
   </article>
 </main>
-<%= render 'shared/header' %>
+<%= render 'shared/footer' %>
 <% else %>
-<%= render 'shared/header' %>
+<%= render 'shared/footer' %>
 
 <% end %>
