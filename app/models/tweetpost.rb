@@ -8,6 +8,7 @@ class Tweetpost < ApplicationRecord
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
   validates :content, presence: true, length: {maximum: 1500}
+  validates :picture, presence: true
   validate :picture_size
 
 

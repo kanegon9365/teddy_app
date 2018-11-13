@@ -39,7 +39,7 @@
 
   <% if @user.tweetposts.any? %>
     <ol>
-      <%= render @tweetposts %>
+      <%= render @tweetposts, showpage: true %>
     </ol>
   <% end %>
   <%= render 'shared/footer' %>

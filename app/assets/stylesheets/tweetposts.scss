@@ -3,40 +3,49 @@
 // You can use Sass (SCSS) here: @charset "UTF-8"
 
 @media screen and (min-width:300px) {
-  .post-container{
-    border: solid 3px black;
-    background: rgb(120, 200, 211);
-    margin: auto;
-    margin-bottom: 5px;
-    width: 80%;
-    li{
-      list-style-type: none;
+    // tweetpost始まり
+    .post-container{
+        border: solid 3px black;
+        background: rgb(120, 200, 211);
+        margin: auto;
+        margin-bottom: 5px;
+        width: 80%;
+        li{
+            list-style-type: none;
+        }
+        .post-nameimage-container{
+            .post-user-image{
+            }
+        }
+
+        .post-tweetpost-image{
+            
+        }
+        
+        .post-likecomment-container{
+            clear:both;
+            ul li{
+                float:left;
+                width:50px;
+            }
+        }
+
+        .post-tweetpost-text{
+            padding-top: 30px;
+            display: block;
+            font-size: 14px;
+        }
     }
-    .post-nameimage-container{
-      .post-user-image{
-      }
+    // tweetpost-container終わり
+    // showページのサムネcss
+    .show-tweetpost-thumb{
+        width: 33%;
+        margin: auto;
+        display: inline-block;
     }
 
-    .post-tweetpost-image{
-      margin: auto;
-    }
-    
-    .post-likecomment-container{
-      clear:both;
-      ul li{
-        float:left;
-        width:50px;
-      }
-    }
-
-    .post-tweetpost-text{
-      padding-top: 30px;
-      display: block;
-      font-size: 14px;
-    }
     
     
-}
 }
 
 

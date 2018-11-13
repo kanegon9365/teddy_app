@@ -1,17 +1,33 @@
-<div class="post-image-name-box">
-  <% if @tweetpost.user.picture.blank? %>
-    <img src="http://placehold.jp/24/cccccc/ffffff/30x30.png?text=user_image" class="post_user-image">
-  <% else %>
-    <%= image_tag @tweetpost.user.picture.url, size: 30, class: "post-user-image" %>
-  <% end %>
-  <%= link_to @tweetpost.user.name, user_path(@tweetpost.user_id) %>
-</div>
-<span class="post-tweetpost-image"><%= image_tag @tweetpost.picture.url if @tweetpost.picture? %></span>
-<span class="post-tweetpost-text"><%= simple_format(@tweetpost.content) %></span>
+<div class="post-container">
+  <div class="post-image-name-box">
+    <% if @tweetpost.user.picture.blank? %>
+      <img src="http://placehold.jp/24/cccccc/ffffff/30x30.png?text=user_image" class="post_user-image">
+    <% else %>
+      <%= image_tag @tweetpost.user.picture.url, size: 30, class: "post-user-image" %>
+    <% end %>
+    <%= link_to @tweetpost.user.name, user_path(@tweetpost.user_id) %>
+  </div>
+  <span class="post-tweetpost-image"><%= image_tag @tweetpost.picture.url, width:500 ,height:520 if @tweetpost.picture? %></span>
 
-<div id="comments_area">
-  <%= render partial: 'comments/index', locals: { comments: @comments } %>
-</div>  
+  <div class="post-likecomment-container">
+    <ul>
+      <li><%= render "likes/like", tweetpost: @tweetpost %></li>
+      <li><i class="fas fa-ellipsis-h"></i></li>
+      <li><i class="far fa-share-square"></i></li>
+      <% if @tweetpost.user %>
+        <%= link_to @tweetpost, method: :delete, data: { confirm: "投稿を削除しますか?" } do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+  <span class="post-tweetpost-text"><%= simple_format(@tweetpost.content) %></span>
+</div>
+
+
+<%= render partial: 'comments/index', locals: { comments: @comments } %>
+
 <% if logged_in? %>
   <%= render partial: 'comments/form', locals: { comment: @comment, tweetpost: @tweetpost } %>
 <% end %>
+<%= render 'shared/footer' %>
