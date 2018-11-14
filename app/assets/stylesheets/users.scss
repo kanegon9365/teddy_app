@@ -25,6 +25,11 @@ body{
         }
     }
 
+    // homeページ
+    .home-background{
+        background-color: rgb(201, 179, 179);
+    }
+
     // ユーザー詳細ページ
     .show-container{
         background-color: rgb(225, 248, 140);
@@ -36,16 +41,20 @@ body{
             
             
             .show-user-image{
-                border-radius: 50%;
-                display: block;
-                height:auto; 
-                margin: 20px;
                 float: left;
-                max-width: 100%;
-                height: auto;
-	            box-sizing: border-box;
+                box-sizing: border-box;
+                display: inline-block;
+                background-color: rgb(32, 151, 155);
+                background-position: center center;
+                background-repeat: no-repeat;
+                margin: 5px;
+                width: 200px;
+                height: 200px;
+                background-size: cover;
+                border-radius: 50%;
             }
         }
+            
         
         .show-userprofile-box{
             

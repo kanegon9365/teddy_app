@@ -5,35 +5,98 @@
 @media screen and (min-width:300px) {
     // tweetpost始まり
     .post-container{
-        border: solid 3px black;
-        background: rgb(120, 200, 211);
+        border: solid 1px rgb(146, 227, 240);
+        background: rgb(253, 253, 253);
         margin: auto;
-        margin-bottom: 5px;
-        width: 80%;
+        margin-bottom: 30px;
+        width: 50%;
+        border-radius: 5%;
         li{
             list-style-type: none;
         }
-        .post-nameimage-container{
+        .post-image-name-box{
+            padding-left: 30px;
             .post-user-image{
+                box-sizing: border-box;
+                display: inline-block;
+                background-color: rgb(32, 151, 155);
+                background-position: center center;
+                background-repeat: no-repeat;
+                margin: 5px;
+                width: 40px;
+                height: 40px;
+                background-size: cover;
+                border-radius: 50%;
+            }
+            .post-user-name{
+                color: black;
+                font-size: 14px;
+                &:hover{
+                    color: black;
+                    text-decoration: none;
+                }
+                
             }
         }
-
         .post-tweetpost-image{
-            
+            display: inline-block;
+            background-color: rgb(32, 151, 155);
+            background-position: center center;
+            background-repeat: no-repeat;
+            width: 653px;
+            height: 480px;
+            background-size: cover;
+            border-radius: 5%;
         }
         
         .post-likecomment-container{
-            clear:both;
-            ul li{
-                float:left;
-                width:50px;
+            clear: both;
+            .post-left-box{
+                li{
+                    float: left;
+                    font-size: 26px;
+                    color: rgb(206, 219, 221);
+                    padding-right: 20px;
+                    &:first-child{
+                        padding-left: -20px;
+                    }
+                }
+                
             }
+            .post-right-box{
+                li{
+                    float: left;
+                    font-size: 26px;
+                    color: rgb(206, 219, 221);
+                    padding-right: 20px;
+                    &:first-child{
+                        padding-left: 340px;
+                    }
+                }
+            }
+            .link-clear{
+                color: rgb(206, 219, 221);
+                &:hover{
+                    color: rgb(206, 219, 221);
+                }
+            }
+            
+        }
+        .post-like-count{
+            display: block;
+            font-size: 12px;
+            font-color: rgb(199, 174, 174);
+            clear: both;
+            font-weight: bold;
+            padding-left: 20px;
         }
 
         .post-tweetpost-text{
             padding-top: 30px;
+            padding-left: 20px;
             display: block;
             font-size: 14px;
+
         }
     }
     // tweetpost-container終わり

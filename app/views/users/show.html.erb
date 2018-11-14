@@ -3,9 +3,9 @@
     <div class="show-container">
       <div class="show-user-image-box">
         <% if @user.picture.blank? %>
-          <img src="http://placehold.jp/24/cccccc/ffffff/152x152.png?text=user_image", class="show-user-image">
+          <img src="http://placehold.jp/24/cccccc/ffffff/150x150.png?text=user_image", class="show-user-image">
         <% else %>
-          <%= image_tag @user.picture.url, size:150, class:"show-user-image" %>
+          <%= image_tag @user.picture.url, class:"show-user-image" %>
         <% end %>
       </div>
       <div class="show-userprofile-box">

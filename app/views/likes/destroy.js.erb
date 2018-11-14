@@ -1,1 +1,1 @@
-$("#tweetpost-<%= @tweetpost.id %> .like").html("<%= escape_javascript(render "likes/like", tweetpost: @tweetpost) %>");
+$('#likes_buttons_<%= @tweetpost.id %>').html("<%= j(render partial: 'likes/like', locals: {tweetpost: @tweetpost}) %>");

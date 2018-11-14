@@ -1,26 +1,24 @@
 class LikesController < ApplicationController
+
+  before_action :set_tweetpost
+
   def create
-    @tweetpost = Tweetpost.find(params[:tweetpost_id])
-    unless @tweetpost.do_like(current_user)
-      @tweetpost.do_like(current_user)
-      @tweetpost.reload
-      respond_to do |format|
-        format.html { redirect_to root_url }
-        format.js
-    end
-    end
+    @like = Like.create(user_id: current_user.id, tweetpost_id: params[:tweetpost_id])
+    @likes = Like.where(tweetpost_id: params[:tweetpost_id])
+    @tweetpost.reload
   end
 
   def destroy
-    @tweetpost = Like.find(params[:id]).tweetpost
-    
-    if @tweetpost.like?(current_user)
-      @tweetpost.do_unlike(current_user)
-      @tweetpost.reload
-      respond_to do |format|
-        format.html { redirect_to root_url }
-        format.js
-      end
-    end
+    like = Like.find_by(user_id: current_user.id, tweetpost_id: params[:tweetpost_id])
+    like.destroy
+    @likes = Like.where(tweetpost_id: params[:tweetpost_id])
+    @tweetpost.reload
   end
+
+  private
+
+  def set_tweetpost
+    @tweetpost = Tweetpost.find(params[:tweetpost_id])
+  end
+
 end

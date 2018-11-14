@@ -2,7 +2,7 @@
 <% if logged_in? %>
 <main>
   <article>
-    <div class="container">
+    <div class="home-background">
       <section>
         <%= render 'shared/feed' %>
       </section>
@@ -12,5 +12,4 @@
 <%= render 'shared/footer' %>
 <% else %>
 <%= render 'shared/footer' %>
-
 <% end %>

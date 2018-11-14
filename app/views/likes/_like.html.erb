@@ -1,16 +1,10 @@
-<% if tweetpost.like?(current_user) %>  
-  <%= form_for(tweetpost.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
-    <%=button_tag :type => "submit", :class=>"btn btn-link" do %>
-     <span><i class="fas fa-heart btnheart"></i></span>
-      <span class="btnheartcount"><%= content_tag :span, tweetpost.likes.count %></span>
-    <% end %>
+<% unless tweetpost.like_user(current_user.id).blank? %>
+  <%= link_to tweetpost_like_path(tweetpost_id: tweetpost.id ,id: tweetpost.likes[0].id), class:"link-clear", method: :delete, remote: true do %>
+    <i class="fas fa-heartbeat"></i>
   <% end %>
 <% else %>
-  <%= form_for(tweetpost.likes.build, remote: true) do |f| %>
-    <div><%= hidden_field_tag :tweetpost_id, tweetpost.id %></div>
-    <%= button_tag :type => "submit", :class =>"btn btn-link" do %>
-      <i class="far fa-heart btnheart"></i>
-      <span class="btnheartcount"><%= content_tag :span, tweetpost.likes.count%></span>
-    <% end %>
+  <%= link_to tweetpost_likes_path(tweetpost.id), class:"link-clear", method: :post, remote: true do %>
+    <i class="far fa-heart"></i>
   <% end %>
 <% end %>
+
