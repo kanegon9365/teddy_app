@@ -1,33 +1,26 @@
 <% if logged_in? %>
-  <footer>
-    <div class="footer-container">
+  <header>
+    <div class="header-container">
         <ul>
           <li>
-            <%= link_to root_path, method: :get do %>
-              <i class="fas fa-home"></i>
-            <% end %>
+            <%= link_to image_tag("P_Tx7ZkSygyAMwL1542268159_1542268190", alt:"logoマーク", class:"logo-stuni"), root_path %>
           </li>
           <li>
-            <%= link_to search_tweetpost_path, method: :get do %>
+            <%= link_to search_tweetpost_path, class:"link-clear header-icon1", method: :get do %>
               <i class="fas fa-search"></i>
             <% end %>
           </li>
           <li>
-            <%= link_to new_tweetpost_path, method: :get do %>
-              <i class="fas fa-plus"></i>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to user_path(current_user), method: :get do %>
+            <%= link_to user_path(current_user), class:"link-clear header-icon2", method: :get do %>
               <i class="fas fa-paw"></i>
             <% end %>
           </li>
           
         </ul>
     </div>
-  </footer>
+  </header>
 <% else %>
-  <footer>
+  <header>
     <div class="container">
     <div class="row">
       <div class="col-4 col-md-4 teddylogo"><%= link_to  "logo", root_path %></div>
@@ -39,5 +32,5 @@
       </div>
     </div>
     </div>
-  </footer>
+  </header>
 <% end %>

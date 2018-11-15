@@ -4,7 +4,9 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
   
   
-  def home
+  def home 
+    
+    @tweetposts = current_user.tweetposts.build if logged_in?
     if logged_in?
         if params[:q] && params[:q].reject { |key, value| value.blank? }.present?
           @q = current_user.feed.ransack(current_user_tweetposts_search_params)

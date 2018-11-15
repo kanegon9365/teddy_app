@@ -1,34 +1,86 @@
 @charset "UTF-8"
 body{ 
-    font-family:  'メイリオ','Hiragino Kaku Gothic Pro', sans-self;
+    font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+    background-color: rgb(235, 230, 230);
 }
 @media screen and (min-width:300px) {
-    footer{
-        .footer-container{
-            background-color: rgb(61, 235, 127);
-            border: solid 2px black;
+    header{
+        .header-container{
+            background-color: white;
+            border: solid 1px rgb(212, 221, 223);
             clear: both;
             position: fixed;
-            bottom: 0;
+            top: 0;
             left: 0;
             width: 100%;
-            height: 50px;
+            height: 70px;
+            z-index: 999;
             ul li{
                 list-style-type: none;
                 float: left;
-                width: 25%;
                 display: block;
                 text-align: center;
                 font-size: 30px;
+                margin-top: 15px;
+                .logo-stuni{
+                    width: 200px;
+                    height: 100px;
+                    margin-top: -35px;
+                    margin-left: 150px;
+                } 
+                .header-icon1{
+                    margin-left: 650px;
+                }
+                .header-icon2{
+                    margin-left: 30px;
+                }
+            }
+            .link-clear{
+                color: rgb(206, 219, 221);
+                &:hover{
+                    color: rgb(206, 219, 221);
+                }
             }
             
         }
     }
+    main{
+        margin-top: 70px;
+        
+        .home-background{
+            clear: both;
+            .home-post-box{
+                float: left;
+            }
+            .home-sidebar-box{
+                float: left;
+                .sidebar-user-image{
+                    box-sizing: border-box;
+                    display: inline-block;
+                    background-color: rgb(32, 151, 155);
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    margin: 5px;
+                    width: 40px;
+                    height: 40px;
+                    background-size: cover;
+                    border-radius: 50%;
+                } 
+                .sidebar-user-name{
+                    color: black;
+                    font-size: 14px;
+                    &:hover{
+                        color: black;
+                        text-decoration: none;
+                    }
+                    
+                }
+            }
+        }
+    }
 
     // homeページ
-    .home-background{
-        background-color: rgb(201, 179, 179);
-    }
+    
 
     // ユーザー詳細ページ
     .show-container{

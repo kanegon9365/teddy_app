@@ -1,15 +1,23 @@
 
 <% if logged_in? %>
+<%= render 'shared/header' %>
 <main>
-  <article>
-    <div class="home-background">
+  <div class="home-background">
+    <div class="col-md-8 home-post-box">
       <section>
         <%= render 'shared/feed' %>
       </section>
     </div>
-  </article>
+    <div class="col-md-4 home-sidebar-box">
+      <%= image_tag current_user.picture.url, class:"sidebar-user-image" %>
+      <%= link_to current_user.name, user_path(current_user), class:"sidebar-user-name" %>
+      <%= render 'shared/tweet_form'%>
+    </div>
+  </div>
+    
+  
 </main>
-<%= render 'shared/footer' %>
+
 <% else %>
-<%= render 'shared/footer' %>
+<%= render 'shared/header' %>
 <% end %>

@@ -1,8 +1,10 @@
 <%= form_for(@tweetposts) do |f| %>
-    
-    <%= f.text_area :content, placeholder: "テキストを入力", rows: 10, cols: 50 %>
-    <%= f.submit "投稿", class: "btn btn-primary" %>
-    <%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png" %>
+    <%= f.text_area :content, placeholder: "", class:"tweet-area"%>
+    <label for="file_photo">
+     <i class="fas fa-camera-retro"></i>
+      <%= f.file_field :picture, id:"file_photo", style:"display: none", accept: "image/jpeg,image/gif,image/png"%>
+    </label>
+    <%= f.submit "投稿", class: "btn post-btn" %>
   <% end %>
 
   <script type="text/javascript">
@@ -12,4 +14,6 @@
       alert('５MB以下のファイルを選択してください');
     }
   });
+
+  
 </script>
