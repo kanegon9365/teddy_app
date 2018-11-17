@@ -1,6 +1,6 @@
 <%= form_with(model: [tweetpost, comment] ) do |f|  %>
   <div>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, placeholder: "コメントを書く", class:"comment-area" %>
   </div>
-  <%= f.submit "コメントする" %>
+  <%= f.submit "コメントする", class:"btn comment-btn" %>
 <% end %>

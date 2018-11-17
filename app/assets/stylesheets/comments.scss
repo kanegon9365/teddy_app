@@ -1,3 +1,102 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@media screen and (min-width:300px) {
+    .comment-user-name{
+        color: rgb(77, 75, 75);
+        display: block;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 10px;
+        &:hover{
+            color: black;
+            text-decoration: none;
+        } 
+    }
+    .comment-delete-link{
+        color: rgba(0,0,0,0.15);
+        font-size: 16px;
+        margin-left: 60px;
+        &:hover{
+            color:rgba(0,0,0,0.15);
+            text-decoration:none;
+        }
+    }
+    // #コメント返信コンテンツ
+    .balloon5 {
+        width: 80%;
+        overflow: hidden;
+    }
+  
+    .balloon5 .faceicon {
+        float: left;
+        margin-right: -90px;
+        width: 80px;
+    }
+    .balloon5 .comment-user-image{
+        box-sizing: border-box;
+        display: inline-block;
+        background-color: rgb(32, 151, 155);
+        background-position: center center;
+        background-repeat: no-repeat;
+        margin: 5px;
+        width: 40px;
+        height: 40px;
+        background-size: cover;
+        border-radius: 50%;
+    }
+    .balloon5 .chatting {
+        width: 100%;
+    }
+    .says {
+        display: inline-block;
+        position: relative; 
+        margin: 5px 0 0 60px;
+        padding: 17px 13px;
+        border-radius: 12px;
+        background: #d7ebfe;
+    }
+    .says:after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 18px; 
+        left: -24px;
+        border: 12px solid transparent;
+        border-right: 12px solid #d7ebfe;
+    }
+    
+    .says p {
+        margin: 0;
+        padding: 0;
+    }
+
+    // コメントフォームcss
+    .comment-area{
+        width: 450px;
+        height: 100px;
+        resize: none;
+        background: #fff0c6;
+        border-radius: 2%;
+        outline: none;
+        padding: 12px;
+        overflow: auto;
+        font-size: 13px;
+        margin-left: 64px;
+    }
+    .comment-btn{
+        background-color: rgb(101, 241, 160);
+        border-radius: 10%;
+        width: 120px;
+        height: 40px;
+        font-weight: bold;
+        color: white;
+        font-size: 14px;
+        text-align: center;
+        padding: auto;
+        margin-left: 260px;
+    }
+}
+
+@media screen and (min-width:768px) {
+}

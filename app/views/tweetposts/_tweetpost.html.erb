@@ -1,7 +1,10 @@
 <% if defined? showpage %>
   <%# showページのみ表示するサムネ%>
-  <span class="show-tweetpost-thumb"><%= link_to image_tag(tweetpost.picture.url, size: 300),
+  <div class="thumb-container">
+    <span class="show-tweetpost-thumb"><%= link_to image_tag(tweetpost.picture.url, size: 300),
                   tweetpost_path(tweetpost.id) if tweetpost.picture? %></span>
+  </div>
+  
 <% else %>
   <div class="post-container">
       <div class="post-image-name-box">

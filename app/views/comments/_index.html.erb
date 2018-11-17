@@ -1,11 +1,24 @@
 <% comments.each do |comment| %>
   <% unless comment.id.nil? %>
-    <p><%= link_to "#{comment.user.name}さんのコメント", user_path(comment.user.id) %></p>
-    <p>コメントの内容<br>
-    <%= simple_format(comment.content) %></p>
-
+    <%= link_to "#{comment.user.name}さん", user_path(comment.user.id), class:"comment-user-name" %>
+    <div class="balloon5">
+      <div class="faceicon">
+        <% if comment.user.picture.blank? %>
+          <img src="http://placehold.jp/24/cccccc/ffffff/30x30.png?text=user_image" class="post_user-image">
+        <% else %>
+          <%= image_tag comment.user.picture.url, class: "comment-user-image" %>
+        <% end %>
+      </div>
+      <div class="chatting">
+        <div class="says">
+          <p><%= simple_format(comment.content) %></p>
+        </div>
+      </div>
+    </div>
     <% if comment.user == current_user %>
-      <%= link_to "削除", tweetpost_comment_path(comment.tweetpost_id, comment.id), method: :delete, remote: true %>
+      <%= link_to tweetpost_comment_path(comment.tweetpost_id, comment.id), class:"comment-delete-link", method: :delete, remote: true do %>
+        <i class="far fa-trash-alt"></i>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>

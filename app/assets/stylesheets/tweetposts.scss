@@ -102,13 +102,22 @@
     }
     // tweetpost-container終わり
     // showページのサムネcss
-    .show-tweetpost-thumb{
-        width: 33%;
+    .thumb-container{
+        width: 75%;
         margin: auto;
-        display: inline-block;
+        
+        .show-tweetpost-thumb{
+            width: 33%;
+            margin: auto;
+            margin-bottom: 30px;
+            display: inline-block;
+            float: left;
+        }
     }
+    
+    
 
-    // tweetpost-css
+    // tweetpost投稿フォーム-css
     .tweet-area{
         width: 300px;
         height: 200px;
@@ -120,8 +129,8 @@
         overflow: auto;
         font-size: 13px;
     }
-    label{
-        color: white;  
+    .label{
+        color: rgba(0,0,0,0.15);  
         font-family: FontAwesome;
         display:block;
         font-size: 22px;
@@ -141,8 +150,113 @@
         margin-top: -75px;
         padding: auto;
     }
-    
-    
+
+    // tweetpost詳細ページ
+    .post-show-container{
+        
+        background: rgb(253, 253, 253);
+        margin: auto;
+        margin-bottom: 30px;
+        width: 50%;
+        border-radius: 5%;
+        margin-top: 70px;
+        
+        li{
+            list-style-type: none;
+        }
+        .post-image-name-box{
+            padding-left: 30px;
+            .post-user-image{
+                box-sizing: border-box;
+                display: inline-block;
+                background-color: rgb(32, 151, 155);
+                background-position: center center;
+                background-repeat: no-repeat;
+                margin: 5px;
+                width: 40px;
+                height: 40px;
+                background-size: cover;
+                border-radius: 50%;
+            }
+            .post-user-name{
+                color: black;
+                font-size: 14px;
+                &:hover{
+                    color: black;
+                    text-decoration: none;
+                }
+                
+            }
+        }
+        .post-tweetpost-image{
+            display: inline-block;
+            background-color: rgb(32, 151, 155);
+            background-position: center center;
+            background-repeat: no-repeat;
+            width: 653px;
+            height: 480px;
+            background-size: cover;
+            border-radius: 5%;
+        }
+        
+        .post-likecomment-container{
+            clear: both;
+            .post-left-box{
+                li{
+                    float: left;
+                    font-size: 26px;
+                    color: rgb(206, 219, 221);
+                    padding-right: 20px;
+                    &:first-child{
+                        padding-left: -20px;
+                    }
+                }
+                
+            }
+            .post-right-box{
+                li{
+                    float: left;
+                    font-size: 26px;
+                    color: rgb(206, 219, 221);
+                    padding-right: 20px;
+                    &:first-child{
+                        padding-left: 340px;
+                    }
+                }
+            }
+            .link-clear{
+                color: rgb(206, 219, 221);
+                &:hover{
+                    color: rgb(206, 219, 221);
+                }
+            }
+            
+        }
+        .post-like-count{
+            display: block;
+            font-size: 12px;
+            font-color: rgb(199, 174, 174);
+            clear: both;
+            font-weight: bold;
+            padding-left: 20px;
+        }
+
+        .post-tweetpost-text{
+            padding-top: 30px;
+            padding-left: 20px;
+            display: block;
+            font-size: 14px;
+            font-family: 'ヒラギノ角ゴ Pro W3';
+            border-bottom: rgba(0,0,0,0.15) 2px solid;
+            padding-bottom: 20px;
+            margin-bottom: 10px;
+        }
+    }
+    .comment-container{
+        margin: auto;
+        
+        padding-left: 50px;
+    }
 }
 
 

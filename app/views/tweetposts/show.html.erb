@@ -1,33 +1,51 @@
-<div class="post-container">
+<%= render 'shared/header' %>
+<div class="post-show-container">
   <div class="post-image-name-box">
     <% if @tweetpost.user.picture.blank? %>
       <img src="http://placehold.jp/24/cccccc/ffffff/30x30.png?text=user_image" class="post_user-image">
     <% else %>
-      <%= image_tag @tweetpost.user.picture.url, size: 30, class: "post-user-image" %>
+      <%= image_tag @tweetpost.user.picture.url, class: "post-user-image" %>
     <% end %>
-    <%= link_to @tweetpost.user.name, user_path(@tweetpost.user_id) %>
-  </div>
-  <span class="post-tweetpost-image"><%= image_tag @tweetpost.picture.url, width:500 ,height:520 if @tweetpost.picture? %></span>
-
+      
+      <%= link_to @tweetpost.user.name, user_path(@tweetpost.user_id), class:"post-user-name" %>
+    </div>
+    <%= image_tag @tweetpost.picture.url, class:"post-tweetpost-image" if @tweetpost.picture? %>
   <div class="post-likecomment-container">
-    <ul>
-      <li><%= render "likes/like", tweetpost: @tweetpost %></li>
-      <li><i class="fas fa-ellipsis-h"></i></li>
-      <li><i class="far fa-share-square"></i></li>
-      <% if @tweetpost.user %>
-        <%= link_to @tweetpost, method: :delete, data: { confirm: "投稿を削除しますか?" } do %>
-          <i class="far fa-trash-alt"></i>
-        <% end %>
+      <ul>
+        <div class="post-left-box">
+          <li id="likes_buttons_<%= @tweetpost.id %>">
+            <%= render "likes/like", tweetpost: @tweetpost, likes: @likes %>
+          </li>
+          
+          <li><i class="far fa-share-square"></i></li>
+        </div>
+        <div class="post-right-box">
+          <li>
+            <% if @tweetpost.user %>
+              <%= link_to @tweetpost, class:"link-clear", method: :delete, data: { confirm: "投稿を削除しますか?" } do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
+            <% end %>
+          </li>
+          <li><i class="fas fa-ellipsis-h"></i></li>
+        </div>
+      </ul>
+    </div>
+    <div class="post-like-count">
+      <% if @tweetpost.likes.count == 0 %>
+        <span>0件のいいね</span>
+      <% else %>
+        <span><%= content_tag :span, @tweetpost.likes.count %>件のいいね</span>
       <% end %>
-    </ul>
-  </div>
+    </div>
   <span class="post-tweetpost-text"><%= simple_format(@tweetpost.content) %></span>
+
+
+<div class="comment-container">
+  <%= render partial: 'comments/index', locals: { comments: @comments } %>
+
+  <% if logged_in? %>
+    <%= render partial: 'comments/form', locals: { comment: @comment, tweetpost: @tweetpost } %>
+  <% end %>
 </div>
-
-
-<%= render partial: 'comments/index', locals: { comments: @comments } %>
-
-<% if logged_in? %>
-  <%= render partial: 'comments/form', locals: { comment: @comment, tweetpost: @tweetpost } %>
-<% end %>
-<%= render 'shared/footer' %>
+</div>
