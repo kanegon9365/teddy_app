@@ -21,7 +21,7 @@
         </div>
         <div class="post-right-box">
           <li>
-            <% if @tweetpost.user %>
+            <% if current_user == @tweetpost.user %>
               <%= link_to @tweetpost, class:"link-clear", method: :delete, data: { confirm: "投稿を削除しますか?" } do %>
                 <i class="far fa-trash-alt"></i>
               <% end %>

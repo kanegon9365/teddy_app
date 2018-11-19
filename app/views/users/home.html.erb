@@ -1,23 +1,27 @@
 
 <% if logged_in? %>
-<%= render 'shared/header' %>
-<main>
-  <div class="home-background">
-    <div class="col-md-8 home-post-box">
-      <section>
-        <%= render 'shared/feed' %>
-      </section>
+  <%= render 'shared/header' %>
+  <main>
+    <div class="home-background">
+      <div class="col-md-8 home-post-box">
+        <section>
+          <%= render 'shared/feed' %>
+        </section>
+      </div>
+      <div class="col-md-4 home-sidebar-box">
+        <% if current_user.picture.blank? %>
+          <%= link_to image_tag("212_0.jpeg", class:"sidebar-user-image") %>
+        <% else %>
+          <%= image_tag current_user.picture.url, class:"sidebar-user-image" %>
+        <% end %>
+        <%= link_to current_user.name, user_path(current_user), class:"sidebar-user-name" %>
+        <%= render 'shared/tweet_form'%>
+      </div>
     </div>
-    <div class="col-md-4 home-sidebar-box">
-      <%= image_tag current_user.picture.url, class:"sidebar-user-image" %>
-      <%= link_to current_user.name, user_path(current_user), class:"sidebar-user-name" %>
-      <%= render 'shared/tweet_form'%>
-    </div>
-  </div>
-    
-  
-</main>
-
+  </main>
 <% else %>
-<%= render 'shared/header' %>
+  <%= render 'shared/header' %>
+  <main>
+    
+  </main>
 <% end %>

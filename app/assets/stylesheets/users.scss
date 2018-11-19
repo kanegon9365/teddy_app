@@ -133,15 +133,25 @@ body{
                     font-size:30px;
                     margin-left:40px;
                 }
-                .show-follow-form{
-                    float: left;
+                .btn-follow{
                     margin-left: 40px;
+                    background-color:#65f1a0;
+                    color: white;
+                    font-weight: bold;
+                    border: solid #65f1a0 1px;
+                }
+                .btn-unfollow{
+                    margin-left: 40px;
+                    background-color: #fff;
+                    color: rgb(78, 74, 74);
+                    border:rgba(0,0,0,0.15) solid 1px;
+                    font-weight:bold;
                 }
                 .dropdown-self{
                     background-color:#fafafa;
                     margin-left: 40px;
                     border:none;
-                    color: black;
+                    color: rgb(37, 36, 36);
                     font-size: 18px;
                 }
             }
@@ -201,15 +211,227 @@ body{
             font-size: 14px;
             text-align: center;
             padding: auto;
-            margin: 15px 0 40px 600px ;
+            margin: 15px 0 40px 500px ;
             
+        }
+        .all-nuidori{
+            display:block;
+            color:rgba(0,0,0,0.15);
+            font-size: 13px;
+            &:hover{
+                color:rgba(0,0,0,10.25);
+                text-decoration: none;
+            }
         }
         .search-result{
             margin-top:50px;
-
         }
     }
 }
+    // 検索ページcss終
+
+    // プロフィール編集ページ
+    .profile-edit-box{
+        background-color: white;
+        width:90%;
+        margin: auto;
+        margin-top: 100px;
+        border: rgba(0,0,0,0.15) solid 1px;
+        .edit-sidebar{
+            border-right: rgba(0,0,0,0.15) solid 1px;
+            .edit-sidebar-link{
+                color:black;
+                font-size: 18px;
+                height: 60px;
+                text-align: center;
+                padding-top: 20px;
+                &:hover{
+                    background-color: rgba(0,0,0,0.15);
+                    color:black;
+                    text-decoration: none;
+                }
+            }
+        }
+        .edit-main{
+            width:100%;
+            .edit-profile-image-box{
+                border-bottom: solid 2px rgba(0,0,0,0.15);
+                width: 100%;
+                padding-bottom: 70px;
+                clear: both;        
+                position: relative;   
+                .label-profile-image{
+                    float: left;
+                    display: inline-block;
+                    margin-top: 40px;
+                    margin-right: 33px;
+                    font-weight: bold;
+                    
+                }
+                .edit-image-box{
+                    margin-top: 20px;
+                    .edit-user-image1{
+                        box-sizing: border-box;
+                        display: inline-block;
+                        background-color: rgb(32, 151, 155);
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        margin: 5px;
+                        width: 50px;
+                        height: 50px;
+                        background-size: cover;
+                        border-radius: 50%;
+                    }
+                    .edit-user-image2{
+                        
+                        box-sizing: border-box;
+                        display: inline-block;
+                        background-color: rgb(32, 151, 155);
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        margin: 5px;
+                        width: 50px;
+                        height: 50px;
+                        background-size: cover;
+                        border-radius: 50%;
+                    }
+                }
+                .edit-file-upload{
+                    display:inline-block;
+                    position: absolute;
+                    margin-top: 10px;
+                }
+            }
+            .edit-profile-name{
+                border-bottom: solid 2px rgba(0,0,0,0.15);
+                width: 100%;
+                padding-bottom: 60px;
+                .edit-name-else-error{
+                    clear: both;
+                    .label-profile-name{
+                        float: left;
+                        font-weight: bold;
+                        padding-top: 8px;
+                        padding-right: 80px;
+                    }
+                    .edit-form-name{
+                        max-width:70%;
+                        margin-top: 50px;
+                    }
+                }
+            }
+            .edit-profile-email{
+                border-bottom: solid 2px rgba(0,0,0,0.15);
+                width: 100%;
+                padding-bottom: 60px;
+                .edit-email-else-error{
+                    clear: both;
+                    .label-profile-email{
+                        float: left;
+                        font-weight: bold;
+                        padding-top: 8px;
+                        padding-right:48px;
+                        
+                    }
+                    .edit-form-email{
+                        max-width:70%;
+                        margin-top: 50px;
+                    }
+                }
+            }
+            .edit-profile-intro{
+                border-bottom: solid 2px rgba(0,0,0,0.15);
+                width: 100%;
+                padding-bottom: 60px;
+                .edit-intro-else-error{
+                    clear: both;
+                    .label-profile-intro{
+                        float: left;
+                        font-weight: bold;
+                        padding-top: 8px;
+                        padding-right: 96px;
+                    }
+                    .edit-form-intro{
+                        max-width:70%;
+                        margin-top: 50px;
+                        resize: none;
+                    }
+                }
+            }
+            .edit-btn{
+                background-color:#65f1a0;
+                color: white;
+                width: 300px;
+                height: 50px;
+                text-align: center;
+                font-size: 18px;
+                margin: auto;
+                border: #65f1a0;
+                margin: 30px 0 60px 180px;
+                &:active{
+                    background-color: #65f1a0;
+                    border: #65f1a0;
+                }
+
+            }
+        }
+        .edit-password{
+            width: 100%;
+            .edit-password-new-box{
+                border-bottom: solid 2px rgba(0,0,0,0.15);
+                width: 100%;
+                padding-bottom: 60px;
+                .edit-new-else-error{
+                    clear: both;
+                    .label-password-new{
+                        float: left;
+                        font-weight: bold;
+                        padding-top: 8px;
+                        padding-right:68px;
+                    }
+                    .password-form-new{
+                        max-width:70%;
+                        margin-top: 50px;
+                    }
+                }
+            }
+            .edit-password-conf-box{
+                border-bottom: solid 2px rgba(0,0,0,0.15);
+                width: 100%;
+                padding-bottom: 60px;
+                .edit-conf-else-error{
+                    clear: both;
+                    .label-password-conf{
+                        float: left;
+                        font-weight: bold;
+                        padding-top: 8px;
+                        padding-right:4px;
+                    }
+                    .password-form-conf{
+                        max-width:70%;
+                        margin-top: 50px;
+                    }
+                }
+            }
+            .btn-password{
+                background-color:#65f1a0;
+                color: white;
+                width: 300px;
+                height: 50px;
+                text-align: center;
+                font-size: 18px;
+                margin: auto;
+                border: #65f1a0;
+                margin: 30px 0 60px 200px;
+                &:active{
+                    background-color: #65f1a0;
+                    border: #65f1a0;
+                }
+            }
+        }
+        
+    }
+    
 }
 
 

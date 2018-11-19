@@ -29,6 +29,10 @@ class TweetpostsController < ApplicationController
     @comments = @tweetpost.comments
   end
 
+  def index
+    
+  end
+
   def tweet_params
     params.require(:tweetpost).permit(:content, :picture)
   end

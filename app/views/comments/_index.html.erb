@@ -4,7 +4,7 @@
     <div class="balloon5">
       <div class="faceicon">
         <% if comment.user.picture.blank? %>
-          <img src="http://placehold.jp/24/cccccc/ffffff/30x30.png?text=user_image" class="post_user-image">
+          <%= link_to image_tag("212_0.jpeg", class:"comment-user-image") %>
         <% else %>
           <%= image_tag comment.user.picture.url, class: "comment-user-image" %>
         <% end %>

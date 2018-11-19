@@ -9,7 +9,7 @@
   <div class="post-container">
       <div class="post-image-name-box">
         <% if tweetpost.user.picture.blank? %>
-          <img src="http://placehold.jp/24/cccccc/ffffff/30x30.png?text=user_image" class="post_user-image">
+          <%= link_to image_tag("212_0.jpeg", class:"post-user-image") %>
         <% else %>
           <%= image_tag tweetpost.user.picture.url, class: "post-user-image" %>
         <% end %>
@@ -33,7 +33,7 @@
         </div>
         <div class="post-right-box">
           <li>
-            <% if tweetpost.user %>
+            <% if current_user == tweetpost.user %>
               <%= link_to tweetpost, class:"link-clear", method: :delete, data: { confirm: "投稿を削除しますか?" } do %>
                 <i class="far fa-trash-alt"></i>
               <% end %>

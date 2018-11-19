@@ -21,16 +21,12 @@
   </header>
 <% else %>
   <header>
-    <div class="container">
-    <div class="row">
-      <div class="col-4 col-md-4 teddylogo"><%= link_to  "logo", root_path %></div>
-      <div class="col-8 col-md-8">
+    <div class="header-container">
         <ul>
+          <li><%= link_to image_tag("P_Tx7ZkSygyAMwL1542268159_1542268190", alt:"logoマーク", class:"logo-stuni"), root_path %></li>
           <li><%= link_to "ログインする", login_path %></li>
-          <li>全ユーザーの投稿をみる</li>
         </ul>
       </div>
-    </div>
     </div>
   </header>
 <% end %>

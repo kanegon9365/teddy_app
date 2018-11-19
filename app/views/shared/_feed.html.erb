@@ -5,4 +5,6 @@
       <%= render @feed %>
     </ol>
     <%= will_paginate @feed,  :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+  <% else %>
+    <%= link_to "ぬいどりを探して、気になる子をフォローしてみましょう！", search_tweetpost_path %>
 <% end %>

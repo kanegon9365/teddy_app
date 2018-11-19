@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/index',to: 'users#index'
   get '/users/:id', to: 'users#show'
   get '/search/tweetpost', to: 'users#search_all'
+  get '/test', to: 'tweetposts#index'
   resources :users do
     member do
       get 'edit_password'
