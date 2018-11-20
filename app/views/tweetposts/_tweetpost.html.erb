@@ -1,3 +1,4 @@
+
 <% if defined? showpage %>
   <%# showページのみ表示するサムネ%>
   <div class="thumb-container">
@@ -9,9 +10,9 @@
   <div class="post-container">
       <div class="post-image-name-box">
         <% if tweetpost.user.picture.blank? %>
-          <%= link_to image_tag("212_0.jpeg", class:"post-user-image") %>
+          <%= link_to image_tag("212_0.jpeg", class:"post-user-image1") %>
         <% else %>
-          <%= image_tag tweetpost.user.picture.url, class: "post-user-image" %>
+          <%= image_tag tweetpost.user.picture.url, class: "post-user-image2" %>
         <% end %>
       
       <%= link_to tweetpost.user.name, user_path(tweetpost.user_id), class:"post-user-name" %>

@@ -9,9 +9,22 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *
+
+ *= require_variables.scss
+ *= require_bootstrap-overrides.scss
+ *= require_bootstrap-overrides.1.scss
+ *= require_global.scss
+ *= require_masthead.scss
+ *= require_mixins.scss
+ *= require_navbar.scss
+ *= require comments.scss
+ *= require likes.scss
+ *= require one-page-wonder.scss
+ *= require relationships.scss
+ *= require tweetposts.scss
+ *= require users.scss
  *= require_self
- *= require_tree .
+
  */
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";

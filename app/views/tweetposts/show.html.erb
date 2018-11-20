@@ -1,10 +1,16 @@
+<head>
+		<title>STUNI</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/tweetposts.scss" />
+	</head>
 <%= render 'shared/header' %>
 <div class="post-show-container">
   <div class="post-image-name-box">
     <% if @tweetpost.user.picture.blank? %>
-      <img src="http://placehold.jp/24/cccccc/ffffff/30x30.png?text=user_image" class="post_user-image">
+      <img src="http://placehold.jp/24/cccccc/ffffff/30x30.png?text=user_image" class="post_user-image1">
     <% else %>
-      <%= image_tag @tweetpost.user.picture.url, class: "post-user-image" %>
+      <%= image_tag @tweetpost.user.picture.url, class: "post-user-image2" %>
     <% end %>
       
       <%= link_to @tweetpost.user.name, user_path(@tweetpost.user_id), class:"post-user-name" %>

@@ -1,3 +1,9 @@
+<head>
+  <title>STUNI</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="users.scss" />
+</head>
 <main>
   <div class="container">
     <div class="show-container">
@@ -12,18 +18,20 @@
         <div class="name-follow-edit-box">
           <span class="show-user-name"><%= user_name(@user) %></span>
           <%# ログインユーザーidとプロフ画面のユーザーidが一致すれば編集ボタンを表示。　一致しない場合かつログイン中の場合フォローボタン表示%>
-          <% if current_user.id == @user.id %>
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle dropdown-self" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-cog"></i>
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <%= link_to "編集", edit_user_path(current_user), class:"show-edit dropdown-item" %>
-                <%= link_to "ログアウト", logout_path, method: :delete, class:"show-edit dropdown-item" %>
+          <% if logged_in? %>
+            <% if current_user.id == @user.id %>
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle dropdown-self" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-cog"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <%= link_to "編集", edit_user_path(current_user), class:"show-edit dropdown-item" %>
+                  <%= link_to "ログアウト", logout_path, method: :delete, class:"show-edit dropdown-item" %>
+                </div>
               </div>
-            </div>
-          <% else %>
-            <%= render 'follow_form' if logged_in? %>
+            <% else %>
+              <%= render 'follow_form' if logged_in? %>
+            <% end %>
           <% end %>
           
         </div>

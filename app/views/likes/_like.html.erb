@@ -1,9 +1,16 @@
-<% unless tweetpost.like_user(current_user.id).blank? %>
-  <%= link_to tweetpost_like_path(tweetpost_id: tweetpost.id ,id: tweetpost.likes[0].id), class:"link-clear", method: :delete, remote: true do %>
-    <i class="fas fa-heart unlike"></i>
+<% if logged_in? %>
+  <% unless tweetpost.like_user(current_user.id).blank? %>
+    <%= link_to tweetpost_like_path(tweetpost_id: tweetpost.id ,id: tweetpost.likes[0].id), class:"link-clear", method: :delete, remote: true do %>
+      <i class="fas fa-heart unlike"></i>
+    <% end %>
+  <% else %>
+    <%= link_to tweetpost_likes_path(tweetpost.id), class:"link-clear", method: :post, remote: true do %>
+      <i class="far fa-heart like"></i>
+    <% end %>
   <% end %>
+
 <% else %>
-  <%= link_to tweetpost_likes_path(tweetpost.id), class:"link-clear", method: :post, remote: true do %>
+  <%= link_to login_path, class:"link-clear", method: :get do %>
     <i class="far fa-heart like"></i>
   <% end %>
 <% end %>
