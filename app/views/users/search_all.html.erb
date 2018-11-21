@@ -1,14 +1,16 @@
 <%= render 'shared/header'%>
 <div class="search-container">
- <div class="search-form-box">
-<%= search_form_for @q, url: @url do |f| %>
-  <%= f.text_field :content_cont, placeholder: "キーワードで検索する", class:"form-control form-search" %>
-  <%= f.submit "検索", class:"btn btn-search" %>
-  <%= link_to "全てのぬいどりを見る", search_tweetpost_path, class:"all-nuidori" %>
-<% end %>
-</div>
-<div class="search-result">
-  <%= render @tweetposts, showpage: true %>
-</div>
-<%= will_paginate @tweetposts,  :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+  <div class="search-form-box">
+    <%= search_form_for @q, url: @url do |f| %>
+    <%= f.text_field :content_cont, placeholder: "キーワードで検索する", class:"form-control form-search" %>
+    <%= f.submit "検索", class:"btn btn-search" %>
+    <%= link_to "全てのぬいどりを見る", search_tweetpost_path, class:"all-nuidori" %>
+    <% end %>
+  </div>
+  <div class="search-result">
+    <%= render @tweetposts, showpage: true %>
+  </div>
+  <div class="search-pagination">
+    <%= will_paginate @tweetposts,  :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+  </div>
 </div>

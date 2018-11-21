@@ -1,10 +1,13 @@
 <% if @feed.any? %>
-  
+  <div class="feed-float-clear">
     <ol>
       <% #@feedの各要素がTweetpostクラスを持っているため、_tweetpostパーシャルを呼び出すことができる %>
       <%= render @feed %>
     </ol>
-    <%= will_paginate @feed,  :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+    </div>
+    <div class="home-pagination">
+      <%= will_paginate @feed,  :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+    </div>
   <% else %>
     <%= link_to "ぬいどりを探して、気になる子をフォローしてみましょう！", search_tweetpost_path %>
 <% end %>

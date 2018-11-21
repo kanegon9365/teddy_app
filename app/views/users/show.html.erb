@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="users.scss" />
 </head>
 <main>
+  <%= render 'shared/header' %>
     <div class="show-container">
       <div class="show-user-image-box">
         <% if @user.picture.blank? %>
@@ -59,10 +60,15 @@
  
 
   <% if @user.tweetposts.any? %>
+  <div class="show-float-clear">
     <ol>
       <%= render @tweetposts, showpage: true %>
     </ol>
+  </div>
+    <div class="show-pagination">
+      <%= will_paginate @tweetposts,  :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer %>
+    </div>
   <% end %>
-  <%= render 'shared/header' %>
+  
 </main>
 

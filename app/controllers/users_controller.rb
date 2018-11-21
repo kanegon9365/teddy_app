@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     else
       @q = Tweetpost.ransack(activated_true: true)
     end
-    @tweetposts = @q.result.paginate(page: params[:page],per_page:10)
+    @tweetposts = @q.result.paginate(page: params[:page],per_page:15)
     @url = search_tweetpost_path
   end
 
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @tweetposts = @user.tweetposts
+    @tweetposts = @user.tweetposts.paginate(page: params[:page], per_page:15)
     
    
   end
