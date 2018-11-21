@@ -5,7 +5,6 @@
   <link rel="stylesheet" href="users.scss" />
 </head>
 <main>
-  <div class="container">
     <div class="show-container">
       <div class="show-user-image-box">
         <% if @user.picture.blank? %>
@@ -32,6 +31,8 @@
             <% else %>
               <%= render 'follow_form' if logged_in? %>
             <% end %>
+          <% else %>          
+            <%= link_to "フォローする", login_path, class: "btn btn-primary btn-follow" %>
           <% end %>
           
         </div>
@@ -55,7 +56,7 @@
         </div>
       </div>
     </div>
-  </div>
+ 
 
   <% if @user.tweetposts.any? %>
     <ol>
