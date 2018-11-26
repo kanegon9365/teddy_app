@@ -17,7 +17,6 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'bcrypt'
 gem 'rails-i18n'
 gem 'carrierwave'
-gem 'fog'
 gem 'mini_magick', '4.7.0'
 gem 'rmagick'
 gem 'rails-ujs'
@@ -56,6 +55,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'fog'
 end
 
 
