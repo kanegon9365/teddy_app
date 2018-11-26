@@ -1,20 +1,18 @@
-<div class="container">
- <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-   <%= flash[:danger] %>
-   <%= form_for(:session, url: login_path) do |f| %>
+<div class="login-container">
+  <%= link_to image_tag("P_Tx7ZkSygyAMwL1542268159_1542268190", alt:"logoマーク", class:"login-logo"), root_path %>
+  <div class="login-form-container">
+    <p class="login-p1">STUNIにログイン</p>
+    <span class="login-error-message"><%= flash[:danger] %></span>
+    <%= form_for(:session, url: login_path) do |f| %>
 
-    <%= f.label :email %>
-    <%= f.email_field :email, class:"form-control" %>
-    
+      <span class="login-label"><%= f.label :メールアドレス %></span>
+      <%= f.email_field :email, class:"form-control login-form", placeholder: "登録時に入力したメールアドレス" %>
+      
+      <span class="login-label"><%= f.label :パスワード %></span>
+      <%= f.password_field :password, class:"form-control login-form", placeholder: "登録時に入力したパスワード" %>
 
-    <%= f.label :password %>
-    <%= f.password_field :password, class:"form-control" %>
-  
-    
-    <%= f.submit "ログイン", class:"btn btn-primary" %>
-   <% end %>
-   <p>会員登録がまだの方は<%= link_to "こちら", signup_path %></p>
+      <%= f.submit "ログイン", class:"btn btn-login" %>
+    <% end %>
+    <p class="login-p2">会員登録がまだの方は<%= link_to "こちら", signup_path %></p>
   </div>
- </div>
 </div>

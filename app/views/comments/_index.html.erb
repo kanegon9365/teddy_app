@@ -12,6 +12,7 @@
       <div class="chatting">
         <div class="says">
           <p><%= simple_format(comment.content) %></p>
+          <span class="comment-created"><%= comment[:created_at].strftime("%Y-%m-%d%H:%M") %></span>
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ body{
 }
 @media screen and (min-width:300px) {
     header{
-        .header-container{
+        .loggedin-header-container{
             background-color: white;
             border: solid 1px rgb(212, 221, 223);
             clear: both;
@@ -40,6 +40,34 @@ body{
                 &:hover{
                     color: rgb(206, 219, 221);
                 }
+            }
+            
+        }
+        .notloggedin-header-container{
+            background-color: white;
+            border: solid 1px rgb(212, 221, 223);
+            clear: both;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            z-index: 999;
+            ul li{
+                list-style-type: none;
+                float: left;
+                font-size: 16px;
+                .logo-stuni{
+                    width: 200px;
+                    height: 100px;
+                    margin: -18px 600px 0 90px;
+                }
+                
+            }
+            .header-path{
+                margin: 26px 25px 0 0;
+                display: block;
+                color: black;
             }
             
         }
@@ -225,7 +253,7 @@ body{
             font-size: 14px;
             text-align: center;
             padding: auto;
-            margin: 15px 0 40px 500px ;
+            margin: 15px 0 40px 450px ;
             
         }
         .all-nuidori{
@@ -448,6 +476,60 @@ body{
         }
         
     }
+
+    // 新規会員登録ページ
+    .signup-container{
+        width: 100%;
+        .logo-contaner{
+            margin-left: 560px;
+            .signup-logo{
+                width: 200px;
+                height: 120px;
+            }
+        }
+        
+        .signup-form-container{
+            border: solid 2px rgba(0,0,0,0.15);
+            width: 30%;
+            margin: auto;
+            background-color: white;
+            padding: 25px;
+            .signup-p1{
+                font-weight: bold;
+                text-align: center;
+                font-size: 22px;
+                margin-bottom: 40px;
+            }
+            .signup-label{
+                font-size: 14px;
+                
+            }
+            .signup-form{
+                font-size: 14px;
+                margin-bottom: 12px;
+            }
+            .btn-signup{
+                background-color:#65f1a0;
+                color: white;
+                width: 200px;
+                height: 50px;
+                text-align: center;
+                font-size: 18px;
+                margin: 15px 0 15px 75px;
+                border: #65f1a0;
+                font-weight: bold;
+                
+                &:active{
+                    background-color: #65f1a0;
+                    border: #65f1a0;
+                }
+            }
+            .signup-p2{
+                font-size: 14px;
+                text-align:center;
+            }
+        }
+    }
     
 }
 
@@ -455,4 +537,3 @@ body{
 @media screen and (min-width:768px) {
 }
 
-// ここまでは自分が書いたcss

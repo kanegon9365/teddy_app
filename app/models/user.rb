@@ -25,7 +25,7 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL },
                     # 大文字小文字の型を無視する
                     uniqueness: { case_sensitive: false }
-  validates :profile, length:{ maximum: 300 }
+  validates :profile, length:{ maximum: 400 }
   has_secure_password
   validates :password, presence: true, length:{ minimum: 6}, allow_nil:true
   validate :picture_size
@@ -35,9 +35,9 @@ class User < ApplicationRecord
   # フォローしているユーザーの投稿を取得
   def feed
     following_ids = "SELECT followed_id FROM relationships
-                     WHERE follower_id = :user_id"
+                    WHERE follower_id = :user_id"
     Tweetpost.where("user_id IN (#{following_ids})
-                     OR user_id = :user_id", user_id: id)
+                    OR user_id = :user_id", user_id: id)
   end
    
   # 引数に与えられたユーザーidをfollowed_idに追加する

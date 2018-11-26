@@ -5,22 +5,20 @@ class UsersController < ApplicationController
   
   
   def home 
-    
     @tweetposts = current_user.tweetposts.build if logged_in?
     if logged_in?
-        if params[:q] && params[:q].reject { |key, value| value.blank? }.present?
-          @q = current_user.feed.ransack(current_user_tweetposts_search_params)
-          @feed = @q.result.paginate(page: params[:page], per_page:10)
-        else
-          @q = Tweetpost.none.ransack
-          @feed = current_user.feed.paginate(page: params[:page], per_page:10)
-        end
+      if params[:q] && params[:q].reject { |key, value| value.blank? }.present?
+        @q = current_user.feed.ransack(current_user_tweetposts_search_params)
+        @feed = @q.result.paginate(page: params[:page], per_page:10)
+      else
+        @q = Tweetpost.none.ransack
+        @feed = current_user.feed.paginate(page: params[:page], per_page:10)
+      end
       @url = root_path
     end
   end
 
   def search_all
-    
     if params[:q] && params[:q].reject { |key, value| value.blank? }.present?
       @q = Tweetpost.ransack(all_tweetpost_search_params, activated_true: true)
     else
@@ -36,8 +34,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @tweetposts = @user.tweetposts.paginate(page: params[:page], per_page:15)
-    
-   
   end
 
   def new
@@ -48,7 +44,7 @@ class UsersController < ApplicationController
     @user=User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to succeed_path
+      redirect_to root_path
     else
       render 'new'
     end

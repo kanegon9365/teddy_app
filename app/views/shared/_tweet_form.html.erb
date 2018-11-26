@@ -1,5 +1,5 @@
 <%= form_for(@tweetposts) do |f| %>
-    <%= f.text_area :content, placeholder: "今の気持ちをつぶやいてみましょう", class:"tweet-area"%>
+    <%= f.text_area :content, placeholder: "お出かけした思い出をつぶやきましょう（画像必須）", class:"tweet-area"%>
     <label for="file_photo" class="label">
     <i class="fas fa-camera-retro"></i>
       <%= f.file_field :picture, id:"file_photo", style:"display: none", accept: "image/jpeg,image/gif,image/png"%>

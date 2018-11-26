@@ -1,21 +1,29 @@
-<%= form_for(@user) do |f| %>
 
- <%= f.label :name %>
- <%= f.text_field :name, class:'form-control' %>
- <%= render "shared/name_error_messages" %>
- 
+<div class="signup-container">
+  <div class="logo-contaner">
+    <%= link_to image_tag("P_Tx7ZkSygyAMwL1542268159_1542268190", alt:"logoマーク", class:"signup-logo"), root_path %>
+  </div>
+  <div class="signup-form-container">
+    <p class="signup-p1">STUNIに登録する</p>
+    <%= form_for(@user) do |f| %>
+      <span class="signup-label"><%= f.label :ニックネーム（登録後に変更可能） %></span>
+      <%= f.text_field :name, class:'form-control signup-form', placeholder: "例:テディー" %>
+      <%= render "shared/name_error_messages" %>
 
- <%= f.label :email %>
- <%= f.email_field :email, class:'form-control' %>
- <%= render "shared/email_error_messages" %>
+      <span class="signup-label"><%= f.label :email %></span>
+      <%= f.email_field :email, class:'form-control signup-form', placeholder: "例:メールアドレス" %>
+      <%= render "shared/email_error_messages" %>
 
- <%= f.label :パスワード %>
- <%= f.password_field :password, class:'form-control' %>
- <%= render "shared/password_error_messages" %>
+      <span class="signup-label"><%= f.label :パスワード %></span>
+      <%= f.password_field :password, class:'form-control signup-form', placeholder: "半角英数で6文字以上" %>
+      <%= render "shared/password_error_messages" %>
 
- <%= f.label :パスワードの確認 %>
- <%= f.password_field :password_confirmation, class:'form-control' %>
- <%= render "shared/password_confirmation_error_messages" %>
+      <span class="signup-label"><%= f.label :パスワードの確認 %></span>
+      <%= f.password_field :password_confirmation, class:'form-control signup-form', placeholder: "確認のために再度入力" %>
+      <%= render "shared/password_confirmation_error_messages" %>
 
- <%= f.submit "ぬいどりを始める", class:"btn btn-primary" %>
-<% end %>
+      <%= f.submit "STUNIを始める", class:"btn btn-signup" %>
+    <% end %>
+    <p class="signup-p2">アカウントを持っている方は<%= link_to "こちら", login_path %>からログイン</p>
+  </div>
+</div>

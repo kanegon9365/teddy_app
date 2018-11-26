@@ -115,6 +115,10 @@
             font-size: 14px;
             font-family: 'ヒラギノ角ゴ Pro W3';
         }
+        .tweetpost-created{
+            font-size: 12px;
+            margin-left: 17px;
+        }
     }
     // tweetpost-container終わり
     // showページのサムネcss
@@ -175,6 +179,7 @@
         margin-bottom: 30px;
         width: 50%;
         border-radius: 5%;
+        border: solid rgba(0,0,0,0.15) 1px;
         margin-top: 70px;
         
         li{
@@ -281,6 +286,10 @@
             border-bottom: rgba(0,0,0,0.15) 2px solid;
             padding-bottom: 20px;
             margin-bottom: 10px;
+        }
+        .show-created{
+            font-size: 12px;
+            margin: auto;
         }
     }
     .comment-container{
