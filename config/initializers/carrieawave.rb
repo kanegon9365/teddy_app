@@ -4,8 +4,8 @@ if Rails.env == 'production'
     config.fog_provider = 'fog/aws'
   config.fog_credentials = {
    provider: 'AWS',
-   aws_access_key_id: ENV['AKIAJTV7MCKSST6V65OQ'],
-   aws_secret_access_key: ENV['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'],
+   aws_access_key_id: ENV['AKIAJ75WZPBHP7OPNSEA'],
+   aws_secret_access_key: ENV['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'],
    region: 'ap-northeast-1'
    }
   config.fog_directory = 'kanegon-teddy-app'
