@@ -1,13 +1,15 @@
 if Rails.env.production?
   CarrierWave.configure do |config|
-    config.fog_provider = 'fog/aws' 
     config.fog_credentials = {
-      # Amazon S3用の設定
-      :provider              => 'AWS',
-      :region                => ENV['ap-northeast-1'],     # 例: 'ap-northeast-1'
-      :aws_access_key_id     => ENV['AKIAJ75WZPBHP7OPNSEA'],
-      :aws_secret_access_key => ENV['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']
+      provider: 'AWS',
+      aws_access_key_id: 'AKIAJ75WZPBHP7OPNSEA',
+      aws_secret_access_key: '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',
+      region: 'ap-northeast-1'
     }
-    config.fog_directory     =  ENV['kanegon-teddy-app']
+  
+    config.fog_directory  = 'rails-photo-123'
+    config.asset_host = "https://s3.ap-northeast-1.amazonaws.com/kanegon-teddy-app"
+    config.cache_storage = :fog
   end
 end
+
